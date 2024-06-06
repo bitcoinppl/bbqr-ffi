@@ -1,0 +1,44 @@
+[package]
+name = "bbqr-ffi"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["lib", "staticlib", "cdylib"]
+name = "bbqrffi"
+
+
+[[bin]]
+name = "uniffi-bindgen"
+path = "uniffi-bindgen.rs"
+
+[features]
+default = ["uniffi/cli"]
+
+[dependencies]
+# bbqr
+bbqr = { git = "https://github.com/SatoshiPortal/bbqr-rust.git", rev = "35328d0595c282d0af6158ffce38bff85b6f4027" }
+
+# libz 
+libz-sys = {version = "1.1", features = ["static"]}
+
+# bindings
+uniffi = { version = "=0.27.3" }
+
+# errors
+thiserror = "1.0"
+
+[build-dependencies]
+uniffi = { version = "=0.27.3", features = ["build"] }
+
+[dev-dependencies]
+uniffi = { version = "=0.27.3", features = ["bindgen-tests"] }
+assert_matches = "1.5.0"
+
+[profile.release-smaller]
+inherits = "release"
+opt-level = 'z'     # Optimize for size.
+lto = true          # Enable Link Time Optimization
+codegen-units = 1   # Reduce number of codegen units to increase optimizations.
+panic = "abort"     # Abort on panic
+strip = true # Strip all symbols from binary
