@@ -1,0 +1,8 @@
+default:
+  just --list
+
+build:
+  bash ./build-local-swift.sh
+
+clean:
+  rm -rf ../bbqr-ffi/target/
