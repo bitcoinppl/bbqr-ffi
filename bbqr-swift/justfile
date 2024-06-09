@@ -4,5 +4,12 @@ default:
 build:
   bash ./build.sh
 
+gen:
+  cd ../bbqr-ffi && just gen
+ 
+  mv ../bbqr-swift/Sources/Bbqr/bbqrffi.swift ../bbqr-swift/Sources/Bbqr/Bbqr.swift
+  rm Sources/Bbqr/bbqrffiFFI.h
+  rm Sources/Bbqr/bbqrffiFFI.modulemap
+
 clean:
   rm -rf ../bbqr-ffi/target/

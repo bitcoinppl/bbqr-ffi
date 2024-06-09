@@ -1,0 +1,3 @@
+gen:
+  cargo build --package bbqr-ffi 
+  cargo run --bin uniffi-bindgen generate --library ./target/debug/libbbqrffi.dylib --language swift --out-dir ../bbqr-swift/Sources/Bbqr
