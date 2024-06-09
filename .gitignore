@@ -1,2 +1,5 @@
-/bbqr-swift/bbqrFFI.xcframework/**/bbqrFFI
-examples/ios/QrDemo/QrDemo.xcodeproj/project.xcworkspace/xcuserdata/praveen.xcuserdatad/UserInterfaceState.xcuserstate
+/bbqr-swift/bbqrffiFFI.xcframework/**/*bbqrffiFFI
+/bbqr-swift/bbqrFFI.xcframework/**/*bbqrffiFFI
+
+examples/**/**/UserInterfaceState.xcuserstate
+bbqr-swift/bbqrffiFFI.xcframework/**/**/bbqrffiFFI

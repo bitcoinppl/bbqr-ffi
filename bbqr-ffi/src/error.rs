@@ -9,8 +9,8 @@ pub enum SplitError {
     #[error("Cannot make the data fit")]
     CannotFit,
 
-    #[error("Max split size is too large, max is {MAX_PARTS}, got {0}")]
-    MaxSplitSizeTooLarge(u16),
+    #[error("Max split size is too large, max is {MAX_PARTS}, got {got}")]
+    MaxSplitSizeTooLarge { got: u16 },
 
     #[error("Min split size is too small, must atleast be 1")]
     MinSplitTooSmall,
@@ -22,7 +22,7 @@ pub enum SplitError {
     InvalidVersionRange,
 
     #[error(transparent)]
-    EncodeError(#[from] EncodeError),
+    EncodeError { error: EncodeError },
 }
 
 /// Errors that can occur when encoding data
@@ -32,7 +32,7 @@ pub enum EncodeError {
     Empty,
 
     #[error("Unable to compress data")]
-    CompressionError(String),
+    CompressionError { error: String },
 }
 
 impl From<bbqr::split::SplitError> for SplitError {
@@ -43,9 +43,11 @@ impl From<bbqr::split::SplitError> for SplitError {
             bbqr::split::SplitError::MinSplitTooSmall => Self::MinSplitTooSmall,
             bbqr::split::SplitError::InvalidSplitRange => Self::InvalidSplitRange,
             bbqr::split::SplitError::InvalidVersionRange => Self::InvalidVersionRange,
-            bbqr::split::SplitError::EncodeError(error) => Self::EncodeError(error.into()),
+            bbqr::split::SplitError::EncodeError(error) => Self::EncodeError {
+                error: error.into(),
+            },
             bbqr::split::SplitError::MaxSplitSizeTooLarge(size) => {
-                Self::MaxSplitSizeTooLarge(size as u16)
+                Self::MaxSplitSizeTooLarge { got: size as u16 }
             }
         }
     }
@@ -55,7 +57,9 @@ impl From<bbqr::encode::EncodeError> for EncodeError {
     fn from(error: bbqr::encode::EncodeError) -> Self {
         match error {
             bbqr::encode::EncodeError::Empty => Self::Empty,
-            bbqr::encode::EncodeError::CompressionError(error) => Self::CompressionError(error),
+            bbqr::encode::EncodeError::CompressionError(error) => Self::CompressionError {
+                error: error.to_string(),
+            },
         }
     }
 }
@@ -63,27 +67,29 @@ impl From<bbqr::encode::EncodeError> for EncodeError {
 #[derive(Debug, thiserror::Error, PartialEq, Eq, Error)]
 pub enum ContinuousJoinError {
     #[error(transparent)]
-    HeaderParseError(#[from] HeaderParseError),
+    HeaderParseError { error: HeaderParseError },
 
     #[error(transparent)]
-    JoinError(#[from] JoinError),
+    JoinError { error: JoinError },
 
     #[error(transparent)]
-    DecodeError(#[from] DecodeError),
+    DecodeError { error: DecodeError },
 }
 
 impl From<bbqr::continuous_join::ContinuousJoinError> for ContinuousJoinError {
     fn from(error: bbqr::continuous_join::ContinuousJoinError) -> Self {
         match error {
             bbqr::continuous_join::ContinuousJoinError::HeaderParseError(error) => {
-                Self::HeaderParseError(error.into())
+                Self::HeaderParseError {
+                    error: error.into(),
+                }
             }
-            bbqr::continuous_join::ContinuousJoinError::JoinError(error) => {
-                Self::JoinError(error.into())
-            }
-            bbqr::continuous_join::ContinuousJoinError::DecodeError(error) => {
-                Self::DecodeError(error.into())
-            }
+            bbqr::continuous_join::ContinuousJoinError::JoinError(error) => Self::JoinError {
+                error: error.into(),
+            },
+            bbqr::continuous_join::ContinuousJoinError::DecodeError(error) => Self::DecodeError {
+                error: error.into(),
+            },
         }
     }
 }
@@ -138,23 +144,23 @@ pub enum JoinError {
     #[error("Conflicting/variable file type/encodings/sizes")]
     ConflictingHeaders,
 
-    #[error("Too many parts, expected {0}, got {1}")]
-    TooManyParts(u16, u16),
+    #[error("Too many parts, expected {expected}, got {got}")]
+    TooManyParts { expected: u16, got: u16 },
 
-    #[error("Duplicated part index {0} has wrong content")]
-    DuplicatePartWrongContent(u16),
+    #[error("Duplicated part index {index} has wrong content")]
+    DuplicatePartWrongContent { index: u16 },
 
-    #[error("Part with index {0} has no data")]
-    PartWithNoData(u16),
+    #[error("Part with index {index} has no data")]
+    PartWithNoData { index: u16 },
 
-    #[error("Missing part, with index {0}")]
-    MissingPart(u16),
-
-    #[error(transparent)]
-    HeaderParseError(#[from] HeaderParseError),
+    #[error("Missing part, with index {index}")]
+    MissingPart { index: u16 },
 
     #[error(transparent)]
-    DecodeError(#[from] DecodeError),
+    HeaderParseError { error: HeaderParseError },
+
+    #[error(transparent)]
+    DecodeError { error: DecodeError },
 }
 
 impl From<bbqr::join::JoinError> for JoinError {
@@ -162,16 +168,27 @@ impl From<bbqr::join::JoinError> for JoinError {
         match error {
             bbqr::join::JoinError::Empty => Self::Empty,
             bbqr::join::JoinError::ConflictingHeaders => Self::ConflictingHeaders,
-            bbqr::join::JoinError::TooManyParts(expected, got) => {
-                Self::TooManyParts(expected as u16, got as u16)
-            }
+            bbqr::join::JoinError::TooManyParts(expected, got) => Self::TooManyParts {
+                expected: expected as u16,
+                got: got as u16,
+            },
             bbqr::join::JoinError::DuplicatePartWrongContent(index) => {
-                Self::DuplicatePartWrongContent(index as u16)
+                Self::DuplicatePartWrongContent {
+                    index: index as u16,
+                }
             }
-            bbqr::join::JoinError::PartWithNoData(index) => Self::PartWithNoData(index as u16),
-            bbqr::join::JoinError::MissingPart(index) => Self::MissingPart(index as u16),
-            bbqr::join::JoinError::HeaderParseError(error) => Self::HeaderParseError(error.into()),
-            bbqr::join::JoinError::DecodeError(error) => Self::DecodeError(error.into()),
+            bbqr::join::JoinError::PartWithNoData(index) => Self::PartWithNoData {
+                index: index as u16,
+            },
+            bbqr::join::JoinError::MissingPart(index) => Self::MissingPart {
+                index: index as u16,
+            },
+            bbqr::join::JoinError::HeaderParseError(error) => Self::HeaderParseError {
+                error: error.into(),
+            },
+            bbqr::join::JoinError::DecodeError(error) => Self::DecodeError {
+                error: error.into(),
+            },
         }
     }
 }

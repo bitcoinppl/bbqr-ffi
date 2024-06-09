@@ -848,11 +848,11 @@ public func FfiConverterTypeSplitOptions_lower(_ value: SplitOptions) -> RustBuf
 }
 
 public enum ContinuousJoinError {
-    case HeaderParseError(HeaderParseError
+    case HeaderParseError(error: HeaderParseError
     )
-    case JoinError(JoinError
+    case JoinError(error: JoinError
     )
-    case DecodeError(DecodeError
+    case DecodeError(error: DecodeError
     )
 }
 
@@ -862,14 +862,14 @@ public struct FfiConverterTypeContinuousJoinError: FfiConverterRustBuffer {
     public static func read(from buf: inout (data: Data, offset: Data.Index)) throws -> ContinuousJoinError {
         let variant: Int32 = try readInt(&buf)
         switch variant {
-        case 1: return try .HeaderParseError(:
-                FfiConverterTypeHeaderParseError.read(from: &buf)
+        case 1: return try .HeaderParseError(
+                error: FfiConverterTypeHeaderParseError.read(from: &buf)
             )
-        case 2: return try .JoinError(:
-                FfiConverterTypeJoinError.read(from: &buf)
+        case 2: return try .JoinError(
+                error: FfiConverterTypeJoinError.read(from: &buf)
             )
-        case 3: return try .DecodeError(:
-                FfiConverterTypeDecodeError.read(from: &buf)
+        case 3: return try .DecodeError(
+                error: FfiConverterTypeDecodeError.read(from: &buf)
             )
 
         default: throw UniffiInternalError.unexpectedEnumCase
@@ -878,17 +878,17 @@ public struct FfiConverterTypeContinuousJoinError: FfiConverterRustBuffer {
 
     public static func write(_ value: ContinuousJoinError, into buf: inout [UInt8]) {
         switch value {
-        case let .HeaderParseError():
+        case let .HeaderParseError(error):
             writeInt(&buf, Int32(1))
-            FfiConverterTypeHeaderParseError.write(, into: &buf)
+            FfiConverterTypeHeaderParseError.write(error, into: &buf)
 
-        case let .JoinError():
+        case let .JoinError(error):
             writeInt(&buf, Int32(2))
-            FfiConverterTypeJoinError.write(, into: &buf)
+            FfiConverterTypeJoinError.write(error, into: &buf)
 
-        case let .DecodeError():
+        case let .DecodeError(error):
             writeInt(&buf, Int32(3))
-            FfiConverterTypeDecodeError.write(, into: &buf)
+            FfiConverterTypeDecodeError.write(error, into: &buf)
         }
     }
 }
@@ -1014,7 +1014,7 @@ extension DecodeError: Equatable, Hashable {}
 
 public enum EncodeError {
     case empty
-    case compressionError(String
+    case compressionError(error: String
     )
 }
 
@@ -1026,7 +1026,7 @@ public struct FfiConverterTypeEncodeError: FfiConverterRustBuffer {
         switch variant {
         case 1: return .empty
 
-        case 2: return try .compressionError(FfiConverterString.read(from: &buf)
+        case 2: return try .compressionError(error: FfiConverterString.read(from: &buf)
             )
 
         default: throw UniffiInternalError.unexpectedEnumCase
@@ -1038,9 +1038,9 @@ public struct FfiConverterTypeEncodeError: FfiConverterRustBuffer {
         case .empty:
             writeInt(&buf, Int32(1))
 
-        case let .compressionError(v1):
+        case let .compressionError(error):
             writeInt(&buf, Int32(2))
-            FfiConverterString.write(v1, into: &buf)
+            FfiConverterString.write(error, into: &buf)
         }
     }
 }
@@ -1247,16 +1247,16 @@ extension HeaderParseError: Equatable, Hashable {}
 public enum JoinError {
     case Empty
     case ConflictingHeaders
-    case TooManyParts(UInt16, UInt16)
-    case DuplicatePartWrongContent(UInt16
+    case TooManyParts(expected: UInt16, got: UInt16)
+    case DuplicatePartWrongContent(index: UInt16
     )
-    case PartWithNoData(UInt16
+    case PartWithNoData(index: UInt16
     )
-    case MissingPart(UInt16
+    case MissingPart(index: UInt16
     )
-    case HeaderParseError(HeaderParseError
+    case HeaderParseError(error: HeaderParseError
     )
-    case DecodeError(DecodeError
+    case DecodeError(error: DecodeError
     )
 }
 
@@ -1268,23 +1268,24 @@ public struct FfiConverterTypeJoinError: FfiConverterRustBuffer {
         switch variant {
         case 1: return .Empty
         case 2: return .ConflictingHeaders
-        case 3: return try .TooManyParts(:
-                FfiConverterUInt16.read(from: &buf),:
-                FfiConverterUInt16.read(from: &buf))
-        case 4: return try .DuplicatePartWrongContent(:
-                FfiConverterUInt16.read(from: &buf)
+        case 3: return try .TooManyParts(
+                expected: FfiConverterUInt16.read(from: &buf),
+                got: FfiConverterUInt16.read(from: &buf)
             )
-        case 5: return try .PartWithNoData(:
-                FfiConverterUInt16.read(from: &buf)
+        case 4: return try .DuplicatePartWrongContent(
+                index: FfiConverterUInt16.read(from: &buf)
             )
-        case 6: return try .MissingPart(:
-                FfiConverterUInt16.read(from: &buf)
+        case 5: return try .PartWithNoData(
+                index: FfiConverterUInt16.read(from: &buf)
             )
-        case 7: return try .HeaderParseError(:
-                FfiConverterTypeHeaderParseError.read(from: &buf)
+        case 6: return try .MissingPart(
+                index: FfiConverterUInt16.read(from: &buf)
             )
-        case 8: return try .DecodeError(:
-                FfiConverterTypeDecodeError.read(from: &buf)
+        case 7: return try .HeaderParseError(
+                error: FfiConverterTypeHeaderParseError.read(from: &buf)
+            )
+        case 8: return try .DecodeError(
+                error: FfiConverterTypeDecodeError.read(from: &buf)
             )
 
         default: throw UniffiInternalError.unexpectedEnumCase
@@ -1299,30 +1300,30 @@ public struct FfiConverterTypeJoinError: FfiConverterRustBuffer {
         case .ConflictingHeaders:
             writeInt(&buf, Int32(2))
 
-        case let .TooManyParts(,):
+        case let .TooManyParts(expected, got):
             writeInt(&buf, Int32(3))
-            FfiConverterUInt16.write(, into: &buf)
-            FfiConverterUInt16.write(, into: &buf)
+            FfiConverterUInt16.write(expected, into: &buf)
+            FfiConverterUInt16.write(got, into: &buf)
 
-        case let .DuplicatePartWrongContent():
+        case let .DuplicatePartWrongContent(index):
             writeInt(&buf, Int32(4))
-            FfiConverterUInt16.write(, into: &buf)
+            FfiConverterUInt16.write(index, into: &buf)
 
-        case let .PartWithNoData():
+        case let .PartWithNoData(index):
             writeInt(&buf, Int32(5))
-            FfiConverterUInt16.write(, into: &buf)
+            FfiConverterUInt16.write(index, into: &buf)
 
-        case let .MissingPart():
+        case let .MissingPart(index):
             writeInt(&buf, Int32(6))
-            FfiConverterUInt16.write(, into: &buf)
+            FfiConverterUInt16.write(index, into: &buf)
 
-        case let .HeaderParseError():
+        case let .HeaderParseError(error):
             writeInt(&buf, Int32(7))
-            FfiConverterTypeHeaderParseError.write(, into: &buf)
+            FfiConverterTypeHeaderParseError.write(error, into: &buf)
 
-        case let .DecodeError():
+        case let .DecodeError(error):
             writeInt(&buf, Int32(8))
-            FfiConverterTypeDecodeError.write(, into: &buf)
+            FfiConverterTypeDecodeError.write(error, into: &buf)
         }
     }
 }
@@ -1334,12 +1335,12 @@ extension JoinError: Error {}
 public enum SplitError {
     case Empty
     case CannotFit
-    case MaxSplitSizeTooLarge(UInt16
+    case MaxSplitSizeTooLarge(got: UInt16
     )
     case MinSplitTooSmall
     case InvalidSplitRange
     case InvalidVersionRange
-    case EncodeError(EncodeError
+    case EncodeError(error: EncodeError
     )
 }
 
@@ -1351,14 +1352,14 @@ public struct FfiConverterTypeSplitError: FfiConverterRustBuffer {
         switch variant {
         case 1: return .Empty
         case 2: return .CannotFit
-        case 3: return try .MaxSplitSizeTooLarge(:
-                FfiConverterUInt16.read(from: &buf)
+        case 3: return try .MaxSplitSizeTooLarge(
+                got: FfiConverterUInt16.read(from: &buf)
             )
         case 4: return .MinSplitTooSmall
         case 5: return .InvalidSplitRange
         case 6: return .InvalidVersionRange
-        case 7: return try .EncodeError(:
-                FfiConverterTypeEncodeError.read(from: &buf)
+        case 7: return try .EncodeError(
+                error: FfiConverterTypeEncodeError.read(from: &buf)
             )
 
         default: throw UniffiInternalError.unexpectedEnumCase
@@ -1373,9 +1374,9 @@ public struct FfiConverterTypeSplitError: FfiConverterRustBuffer {
         case .CannotFit:
             writeInt(&buf, Int32(2))
 
-        case let .MaxSplitSizeTooLarge():
+        case let .MaxSplitSizeTooLarge(got):
             writeInt(&buf, Int32(3))
-            FfiConverterUInt16.write(, into: &buf)
+            FfiConverterUInt16.write(got, into: &buf)
 
         case .MinSplitTooSmall:
             writeInt(&buf, Int32(4))
@@ -1386,9 +1387,9 @@ public struct FfiConverterTypeSplitError: FfiConverterRustBuffer {
         case .InvalidVersionRange:
             writeInt(&buf, Int32(6))
 
-        case let .EncodeError():
+        case let .EncodeError(error):
             writeInt(&buf, Int32(7))
-            FfiConverterTypeEncodeError.write(, into: &buf)
+            FfiConverterTypeEncodeError.write(error, into: &buf)
         }
     }
 }
