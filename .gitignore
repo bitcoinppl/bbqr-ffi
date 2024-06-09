@@ -1,5 +1,3 @@
-/bbqr-swift/bbqrFFI.xcframework/**/*bbqrffiFFI
-/bbqr-swift/bbqrffiFFI.xcframework/**/**/bbqrffiFFI
 /bbqr-swift/Bbqr.xcframework/**/*bbqrffiFFI
 
 examples/**/**/UserInterfaceState.xcuserstate
