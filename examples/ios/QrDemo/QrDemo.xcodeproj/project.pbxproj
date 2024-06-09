@@ -14,6 +14,7 @@
 		AC328C0F2C12AB1A0053A21A /* QrDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC328C0E2C12AB1A0053A21A /* QrDemoTests.swift */; };
 		AC328C192C12AB1A0053A21A /* QrDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC328C182C12AB1A0053A21A /* QrDemoUITests.swift */; };
 		AC328C1B2C12AB1A0053A21A /* QrDemoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC328C1A2C12AB1A0053A21A /* QrDemoUITestsLaunchTests.swift */; };
+		AC328C292C15FAB50053A21A /* Bbqr in Frameworks */ = {isa = PBXBuildFile; productRef = AC328C282C15FAB50053A21A /* Bbqr */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC328C292C15FAB50053A21A /* Bbqr in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,6 +145,9 @@
 			dependencies = (
 			);
 			name = QrDemo;
+			packageProductDependencies = (
+				AC328C282C15FAB50053A21A /* Bbqr */,
+			);
 			productName = QrDemo;
 			productReference = AC328BFA2C12AB190053A21A /* QrDemo.app */;
 			productType = "com.apple.product-type.application";
@@ -598,6 +603,13 @@
 			relativePath = "../../../bbqr-swift";
 		};
 /* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		AC328C282C15FAB50053A21A /* Bbqr */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Bbqr;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = AC328BF22C12AB190053A21A /* Project object */;
 }
