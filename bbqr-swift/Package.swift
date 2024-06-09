@@ -3,7 +3,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "bbqr-swift",
+    name: "BbqrSwift",
     platforms: [
         .macOS(.v12),
         .iOS(.v15)
@@ -12,13 +12,15 @@ let package = Package(
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
             name: "Bbqr",
-            targets: ["bbqrFFI", "Bbqr"]),
+            targets: ["bbqrFFI"]),
     ],
     dependencies: [],
-        .binaryTarget(name: "bdkFFI", path: "./bdkFFI.xcframework"),
+    targets: [
+        .binaryTarget(name: "bbqrFFI", path: "./bbqrFFI.xcframework"),
         .target(
             name: "Bbqr",
             dependencies: ["bbqrFFI"]
         ),
+
     ]
 )
