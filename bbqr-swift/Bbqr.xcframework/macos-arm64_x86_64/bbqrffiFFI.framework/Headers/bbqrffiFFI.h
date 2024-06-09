@@ -332,6 +332,12 @@ RustBuffer uniffi_bbqrffi_fn_method_split_parts(void*_Nonnull ptr, RustCallStatu
 RustBuffer uniffi_bbqrffi_fn_method_split_version(void*_Nonnull ptr, RustCallStatus *_Nonnull out_status
 );
 #endif
+#ifndef UNIFFI_FFIDEF_UNIFFI_BBQRFFI_FN_FUNC_DEFAULT_SPLIT_OPTIONS
+#define UNIFFI_FFIDEF_UNIFFI_BBQRFFI_FN_FUNC_DEFAULT_SPLIT_OPTIONS
+RustBuffer uniffi_bbqrffi_fn_func_default_split_options(RustCallStatus *_Nonnull out_status
+    
+);
+#endif
 #ifndef UNIFFI_FFIDEF_FFI_BBQRFFI_RUSTBUFFER_ALLOC
 #define UNIFFI_FFIDEF_FFI_BBQRFFI_RUSTBUFFER_ALLOC
 RustBuffer ffi_bbqrffi_rustbuffer_alloc(uint64_t size, RustCallStatus *_Nonnull out_status
@@ -610,6 +616,12 @@ void ffi_bbqrffi_rust_future_free_void(uint64_t handle
 #ifndef UNIFFI_FFIDEF_FFI_BBQRFFI_RUST_FUTURE_COMPLETE_VOID
 #define UNIFFI_FFIDEF_FFI_BBQRFFI_RUST_FUTURE_COMPLETE_VOID
 void ffi_bbqrffi_rust_future_complete_void(uint64_t handle, RustCallStatus *_Nonnull out_status
+);
+#endif
+#ifndef UNIFFI_FFIDEF_UNIFFI_BBQRFFI_CHECKSUM_FUNC_DEFAULT_SPLIT_OPTIONS
+#define UNIFFI_FFIDEF_UNIFFI_BBQRFFI_CHECKSUM_FUNC_DEFAULT_SPLIT_OPTIONS
+uint16_t uniffi_bbqrffi_checksum_func_default_split_options(void
+    
 );
 #endif
 #ifndef UNIFFI_FFIDEF_UNIFFI_BBQRFFI_CHECKSUM_METHOD_CONTINUOUSJOINER_ADD_PART

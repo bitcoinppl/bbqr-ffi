@@ -12,8 +12,12 @@ pub enum FileType {
 #[derive(Debug, Clone, Record)]
 pub struct SplitOptions {
     pub encoding: Encoding,
+
+    #[uniffi(default = 1)]
     pub min_split_number: u16,
+    #[uniffi(default = 1295)]
     pub max_split_number: u16,
+
     pub min_version: Version,
     pub max_version: Version,
 }
@@ -109,6 +113,29 @@ impl From<bbqr::encode::Encoding> for Encoding {
             bbqr::encode::Encoding::Hex => Self::Hex,
             bbqr::encode::Encoding::Base32 => Self::Base32,
             bbqr::encode::Encoding::Zlib => Self::Zlib,
+        }
+    }
+}
+
+impl Default for SplitOptions {
+    fn default() -> Self {
+        bbqr::split::SplitOptions::default().into()
+    }
+}
+
+#[uniffi::export]
+fn default_split_options() -> SplitOptions {
+    SplitOptions::default()
+}
+
+impl From<bbqr::split::SplitOptions> for SplitOptions {
+    fn from(options: bbqr::split::SplitOptions) -> Self {
+        Self {
+            encoding: options.encoding.into(),
+            min_split_number: options.min_split_number as u16,
+            max_split_number: options.max_split_number as u16,
+            min_version: options.min_version.into(),
+            max_version: options.max_version.into(),
         }
     }
 }

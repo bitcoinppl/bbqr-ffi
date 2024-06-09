@@ -1,0 +1,6 @@
+framework module bbqrffiFFI {
+  umbrella header "bbqrffiFFI-umbrella.h"
+
+  export *
+  module * { export * }
+}
