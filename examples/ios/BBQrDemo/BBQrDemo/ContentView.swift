@@ -33,7 +33,7 @@ func continousJoiner(parts: [String]) throws -> String {
         case .notStarted:
             print("not started")
         case .inProgress(let partsLeft):
-            print("added item")
+            print("added item, \(partsLeft) parts left")
         case .complete(let joined):
             return String(decoding: joined.data(), as: UTF8.self)
         }
