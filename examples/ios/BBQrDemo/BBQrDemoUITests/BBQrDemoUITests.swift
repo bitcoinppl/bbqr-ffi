@@ -1,13 +1,13 @@
 //
-//  QrDemoUITests.swift
-//  QrDemoUITests
+//  BBQrDemoUITests.swift
+//  BBQrDemoUITests
 //
 //  Created by Praveen Perera on 6/9/24.
 //
 
 import XCTest
 
-final class QrDemoUITests: XCTestCase {
+final class BBQrDemoUITests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

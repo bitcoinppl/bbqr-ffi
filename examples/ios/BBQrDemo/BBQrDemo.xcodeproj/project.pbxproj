@@ -7,61 +7,63 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AC328CB52C1611260053A21A /* QrDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC328CB42C1611260053A21A /* QrDemoApp.swift */; };
-		AC328CB72C1611260053A21A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC328CB62C1611260053A21A /* ContentView.swift */; };
-		AC328CB92C1611270053A21A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC328CB82C1611270053A21A /* Assets.xcassets */; };
-		AC328CBC2C1611270053A21A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC328CBB2C1611270053A21A /* Preview Assets.xcassets */; };
-		AC328CC62C1611270053A21A /* QrDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC328CC52C1611270053A21A /* QrDemoTests.swift */; };
-		AC328CD02C1611270053A21A /* QrDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC328CCF2C1611270053A21A /* QrDemoUITests.swift */; };
-		AC328CD22C1611270053A21A /* QrDemoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC328CD12C1611270053A21A /* QrDemoUITestsLaunchTests.swift */; };
+		ACE1ABDF2C16325400EBF20C /* BBQrDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE1ABDE2C16325400EBF20C /* BBQrDemoApp.swift */; };
+		ACE1ABE12C16325400EBF20C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE1ABE02C16325400EBF20C /* ContentView.swift */; };
+		ACE1ABE32C16325500EBF20C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACE1ABE22C16325500EBF20C /* Assets.xcassets */; };
+		ACE1ABE62C16325500EBF20C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACE1ABE52C16325500EBF20C /* Preview Assets.xcassets */; };
+		ACE1ABF02C16325500EBF20C /* BBQrDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE1ABEF2C16325500EBF20C /* BBQrDemoTests.swift */; };
+		ACE1ABFA2C16325500EBF20C /* BBQrDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE1ABF92C16325500EBF20C /* BBQrDemoUITests.swift */; };
+		ACE1ABFC2C16325500EBF20C /* BBQrDemoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE1ABFB2C16325500EBF20C /* BBQrDemoUITestsLaunchTests.swift */; };
+		ACE1AC0A2C16326900EBF20C /* Bbqr in Frameworks */ = {isa = PBXBuildFile; productRef = ACE1AC092C16326900EBF20C /* Bbqr */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		AC328CC22C1611270053A21A /* PBXContainerItemProxy */ = {
+		ACE1ABEC2C16325500EBF20C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = AC328CA92C1611260053A21A /* Project object */;
+			containerPortal = ACE1ABD32C16325400EBF20C /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = AC328CB02C1611260053A21A;
-			remoteInfo = QrDemo;
+			remoteGlobalIDString = ACE1ABDA2C16325400EBF20C;
+			remoteInfo = BBQrDemo;
 		};
-		AC328CCC2C1611270053A21A /* PBXContainerItemProxy */ = {
+		ACE1ABF62C16325500EBF20C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = AC328CA92C1611260053A21A /* Project object */;
+			containerPortal = ACE1ABD32C16325400EBF20C /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = AC328CB02C1611260053A21A;
-			remoteInfo = QrDemo;
+			remoteGlobalIDString = ACE1ABDA2C16325400EBF20C;
+			remoteInfo = BBQrDemo;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		AC328CB12C1611260053A21A /* QrDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QrDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		AC328CB42C1611260053A21A /* QrDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrDemoApp.swift; sourceTree = "<group>"; };
-		AC328CB62C1611260053A21A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		AC328CB82C1611270053A21A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		AC328CBB2C1611270053A21A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		AC328CC12C1611270053A21A /* QrDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QrDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		AC328CC52C1611270053A21A /* QrDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrDemoTests.swift; sourceTree = "<group>"; };
-		AC328CCB2C1611270053A21A /* QrDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QrDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		AC328CCF2C1611270053A21A /* QrDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrDemoUITests.swift; sourceTree = "<group>"; };
-		AC328CD12C1611270053A21A /* QrDemoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrDemoUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		ACE1ABDB2C16325400EBF20C /* BBQrDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BBQrDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACE1ABDE2C16325400EBF20C /* BBQrDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BBQrDemoApp.swift; sourceTree = "<group>"; };
+		ACE1ABE02C16325400EBF20C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		ACE1ABE22C16325500EBF20C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		ACE1ABE52C16325500EBF20C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		ACE1ABEB2C16325500EBF20C /* BBQrDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BBQrDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACE1ABEF2C16325500EBF20C /* BBQrDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BBQrDemoTests.swift; sourceTree = "<group>"; };
+		ACE1ABF52C16325500EBF20C /* BBQrDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BBQrDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACE1ABF92C16325500EBF20C /* BBQrDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BBQrDemoUITests.swift; sourceTree = "<group>"; };
+		ACE1ABFB2C16325500EBF20C /* BBQrDemoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BBQrDemoUITestsLaunchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		AC328CAE2C1611260053A21A /* Frameworks */ = {
+		ACE1ABD82C16325400EBF20C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ACE1AC0A2C16326900EBF20C /* Bbqr in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACE1ABE82C16325500EBF20C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AC328CBE2C1611270053A21A /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		AC328CC82C1611270053A21A /* Frameworks */ = {
+		ACE1ABF22C16325500EBF20C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -71,144 +73,145 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		AC328CA82C1611260053A21A = {
+		ACE1ABD22C16325400EBF20C = {
 			isa = PBXGroup;
 			children = (
-				AC328CB32C1611260053A21A /* QrDemo */,
-				AC328CC42C1611270053A21A /* QrDemoTests */,
-				AC328CCE2C1611270053A21A /* QrDemoUITests */,
-				AC328CB22C1611260053A21A /* Products */,
+				ACE1ABDD2C16325400EBF20C /* BBQrDemo */,
+				ACE1ABEE2C16325500EBF20C /* BBQrDemoTests */,
+				ACE1ABF82C16325500EBF20C /* BBQrDemoUITests */,
+				ACE1ABDC2C16325400EBF20C /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		AC328CB22C1611260053A21A /* Products */ = {
+		ACE1ABDC2C16325400EBF20C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AC328CB12C1611260053A21A /* QrDemo.app */,
-				AC328CC12C1611270053A21A /* QrDemoTests.xctest */,
-				AC328CCB2C1611270053A21A /* QrDemoUITests.xctest */,
+				ACE1ABDB2C16325400EBF20C /* BBQrDemo.app */,
+				ACE1ABEB2C16325500EBF20C /* BBQrDemoTests.xctest */,
+				ACE1ABF52C16325500EBF20C /* BBQrDemoUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		AC328CB32C1611260053A21A /* QrDemo */ = {
+		ACE1ABDD2C16325400EBF20C /* BBQrDemo */ = {
 			isa = PBXGroup;
 			children = (
-				AC328CB42C1611260053A21A /* QrDemoApp.swift */,
-				AC328CB62C1611260053A21A /* ContentView.swift */,
-				AC328CB82C1611270053A21A /* Assets.xcassets */,
-				AC328CBA2C1611270053A21A /* Preview Content */,
+				ACE1ABDE2C16325400EBF20C /* BBQrDemoApp.swift */,
+				ACE1ABE02C16325400EBF20C /* ContentView.swift */,
+				ACE1ABE22C16325500EBF20C /* Assets.xcassets */,
+				ACE1ABE42C16325500EBF20C /* Preview Content */,
 			);
-			path = QrDemo;
+			path = BBQrDemo;
 			sourceTree = "<group>";
 		};
-		AC328CBA2C1611270053A21A /* Preview Content */ = {
+		ACE1ABE42C16325500EBF20C /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				AC328CBB2C1611270053A21A /* Preview Assets.xcassets */,
+				ACE1ABE52C16325500EBF20C /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		AC328CC42C1611270053A21A /* QrDemoTests */ = {
+		ACE1ABEE2C16325500EBF20C /* BBQrDemoTests */ = {
 			isa = PBXGroup;
 			children = (
-				AC328CC52C1611270053A21A /* QrDemoTests.swift */,
+				ACE1ABEF2C16325500EBF20C /* BBQrDemoTests.swift */,
 			);
-			path = QrDemoTests;
+			path = BBQrDemoTests;
 			sourceTree = "<group>";
 		};
-		AC328CCE2C1611270053A21A /* QrDemoUITests */ = {
+		ACE1ABF82C16325500EBF20C /* BBQrDemoUITests */ = {
 			isa = PBXGroup;
 			children = (
-				AC328CCF2C1611270053A21A /* QrDemoUITests.swift */,
-				AC328CD12C1611270053A21A /* QrDemoUITestsLaunchTests.swift */,
+				ACE1ABF92C16325500EBF20C /* BBQrDemoUITests.swift */,
+				ACE1ABFB2C16325500EBF20C /* BBQrDemoUITestsLaunchTests.swift */,
 			);
-			path = QrDemoUITests;
+			path = BBQrDemoUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		AC328CB02C1611260053A21A /* QrDemo */ = {
+		ACE1ABDA2C16325400EBF20C /* BBQrDemo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AC328CD52C1611270053A21A /* Build configuration list for PBXNativeTarget "QrDemo" */;
+			buildConfigurationList = ACE1ABFF2C16325500EBF20C /* Build configuration list for PBXNativeTarget "BBQrDemo" */;
 			buildPhases = (
-				AC328CAD2C1611260053A21A /* Sources */,
-				AC328CAE2C1611260053A21A /* Frameworks */,
-				AC328CAF2C1611260053A21A /* Resources */,
+				ACE1ABD72C16325400EBF20C /* Sources */,
+				ACE1ABD82C16325400EBF20C /* Frameworks */,
+				ACE1ABD92C16325400EBF20C /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = QrDemo;
+			name = BBQrDemo;
 			packageProductDependencies = (
+				ACE1AC092C16326900EBF20C /* Bbqr */,
 			);
-			productName = QrDemo;
-			productReference = AC328CB12C1611260053A21A /* QrDemo.app */;
+			productName = BBQrDemo;
+			productReference = ACE1ABDB2C16325400EBF20C /* BBQrDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
-		AC328CC02C1611270053A21A /* QrDemoTests */ = {
+		ACE1ABEA2C16325500EBF20C /* BBQrDemoTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AC328CD82C1611270053A21A /* Build configuration list for PBXNativeTarget "QrDemoTests" */;
+			buildConfigurationList = ACE1AC022C16325500EBF20C /* Build configuration list for PBXNativeTarget "BBQrDemoTests" */;
 			buildPhases = (
-				AC328CBD2C1611270053A21A /* Sources */,
-				AC328CBE2C1611270053A21A /* Frameworks */,
-				AC328CBF2C1611270053A21A /* Resources */,
+				ACE1ABE72C16325500EBF20C /* Sources */,
+				ACE1ABE82C16325500EBF20C /* Frameworks */,
+				ACE1ABE92C16325500EBF20C /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				AC328CC32C1611270053A21A /* PBXTargetDependency */,
+				ACE1ABED2C16325500EBF20C /* PBXTargetDependency */,
 			);
-			name = QrDemoTests;
-			productName = QrDemoTests;
-			productReference = AC328CC12C1611270053A21A /* QrDemoTests.xctest */;
+			name = BBQrDemoTests;
+			productName = BBQrDemoTests;
+			productReference = ACE1ABEB2C16325500EBF20C /* BBQrDemoTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		AC328CCA2C1611270053A21A /* QrDemoUITests */ = {
+		ACE1ABF42C16325500EBF20C /* BBQrDemoUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AC328CDB2C1611270053A21A /* Build configuration list for PBXNativeTarget "QrDemoUITests" */;
+			buildConfigurationList = ACE1AC052C16325500EBF20C /* Build configuration list for PBXNativeTarget "BBQrDemoUITests" */;
 			buildPhases = (
-				AC328CC72C1611270053A21A /* Sources */,
-				AC328CC82C1611270053A21A /* Frameworks */,
-				AC328CC92C1611270053A21A /* Resources */,
+				ACE1ABF12C16325500EBF20C /* Sources */,
+				ACE1ABF22C16325500EBF20C /* Frameworks */,
+				ACE1ABF32C16325500EBF20C /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				AC328CCD2C1611270053A21A /* PBXTargetDependency */,
+				ACE1ABF72C16325500EBF20C /* PBXTargetDependency */,
 			);
-			name = QrDemoUITests;
-			productName = QrDemoUITests;
-			productReference = AC328CCB2C1611270053A21A /* QrDemoUITests.xctest */;
+			name = BBQrDemoUITests;
+			productName = BBQrDemoUITests;
+			productReference = ACE1ABF52C16325500EBF20C /* BBQrDemoUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		AC328CA92C1611260053A21A /* Project object */ = {
+		ACE1ABD32C16325400EBF20C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1540;
 				LastUpgradeCheck = 1540;
 				TargetAttributes = {
-					AC328CB02C1611260053A21A = {
+					ACE1ABDA2C16325400EBF20C = {
 						CreatedOnToolsVersion = 15.4;
 					};
-					AC328CC02C1611270053A21A = {
+					ACE1ABEA2C16325500EBF20C = {
 						CreatedOnToolsVersion = 15.4;
-						TestTargetID = AC328CB02C1611260053A21A;
+						TestTargetID = ACE1ABDA2C16325400EBF20C;
 					};
-					AC328CCA2C1611270053A21A = {
+					ACE1ABF42C16325500EBF20C = {
 						CreatedOnToolsVersion = 15.4;
-						TestTargetID = AC328CB02C1611260053A21A;
+						TestTargetID = ACE1ABDA2C16325400EBF20C;
 					};
 				};
 			};
-			buildConfigurationList = AC328CAC2C1611260053A21A /* Build configuration list for PBXProject "QrDemo" */;
+			buildConfigurationList = ACE1ABD62C16325400EBF20C /* Build configuration list for PBXProject "BBQrDemo" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -216,39 +219,39 @@
 				en,
 				Base,
 			);
-			mainGroup = AC328CA82C1611260053A21A;
+			mainGroup = ACE1ABD22C16325400EBF20C;
 			packageReferences = (
-				AC328CDE2C1611510053A21A /* XCLocalSwiftPackageReference "../../../../bbqr-swift" */,
+				ACE1AC082C16326900EBF20C /* XCLocalSwiftPackageReference "../../../bbqr-swift" */,
 			);
-			productRefGroup = AC328CB22C1611260053A21A /* Products */;
+			productRefGroup = ACE1ABDC2C16325400EBF20C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				AC328CB02C1611260053A21A /* QrDemo */,
-				AC328CC02C1611270053A21A /* QrDemoTests */,
-				AC328CCA2C1611270053A21A /* QrDemoUITests */,
+				ACE1ABDA2C16325400EBF20C /* BBQrDemo */,
+				ACE1ABEA2C16325500EBF20C /* BBQrDemoTests */,
+				ACE1ABF42C16325500EBF20C /* BBQrDemoUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		AC328CAF2C1611260053A21A /* Resources */ = {
+		ACE1ABD92C16325400EBF20C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC328CBC2C1611270053A21A /* Preview Assets.xcassets in Resources */,
-				AC328CB92C1611270053A21A /* Assets.xcassets in Resources */,
+				ACE1ABE62C16325500EBF20C /* Preview Assets.xcassets in Resources */,
+				ACE1ABE32C16325500EBF20C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AC328CBF2C1611270053A21A /* Resources */ = {
+		ACE1ABE92C16325500EBF20C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AC328CC92C1611270053A21A /* Resources */ = {
+		ACE1ABF32C16325500EBF20C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -258,49 +261,49 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		AC328CAD2C1611260053A21A /* Sources */ = {
+		ACE1ABD72C16325400EBF20C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC328CB72C1611260053A21A /* ContentView.swift in Sources */,
-				AC328CB52C1611260053A21A /* QrDemoApp.swift in Sources */,
+				ACE1ABE12C16325400EBF20C /* ContentView.swift in Sources */,
+				ACE1ABDF2C16325400EBF20C /* BBQrDemoApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AC328CBD2C1611270053A21A /* Sources */ = {
+		ACE1ABE72C16325500EBF20C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC328CC62C1611270053A21A /* QrDemoTests.swift in Sources */,
+				ACE1ABF02C16325500EBF20C /* BBQrDemoTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AC328CC72C1611270053A21A /* Sources */ = {
+		ACE1ABF12C16325500EBF20C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC328CD22C1611270053A21A /* QrDemoUITestsLaunchTests.swift in Sources */,
-				AC328CD02C1611270053A21A /* QrDemoUITests.swift in Sources */,
+				ACE1ABFC2C16325500EBF20C /* BBQrDemoUITestsLaunchTests.swift in Sources */,
+				ACE1ABFA2C16325500EBF20C /* BBQrDemoUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		AC328CC32C1611270053A21A /* PBXTargetDependency */ = {
+		ACE1ABED2C16325500EBF20C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = AC328CB02C1611260053A21A /* QrDemo */;
-			targetProxy = AC328CC22C1611270053A21A /* PBXContainerItemProxy */;
+			target = ACE1ABDA2C16325400EBF20C /* BBQrDemo */;
+			targetProxy = ACE1ABEC2C16325500EBF20C /* PBXContainerItemProxy */;
 		};
-		AC328CCD2C1611270053A21A /* PBXTargetDependency */ = {
+		ACE1ABF72C16325500EBF20C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = AC328CB02C1611260053A21A /* QrDemo */;
-			targetProxy = AC328CCC2C1611270053A21A /* PBXContainerItemProxy */;
+			target = ACE1ABDA2C16325400EBF20C /* BBQrDemo */;
+			targetProxy = ACE1ABF62C16325500EBF20C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		AC328CD32C1611270053A21A /* Debug */ = {
+		ACE1ABFD2C16325500EBF20C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -363,7 +366,7 @@
 			};
 			name = Debug;
 		};
-		AC328CD42C1611270053A21A /* Release */ = {
+		ACE1ABFE2C16325500EBF20C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -419,14 +422,14 @@
 			};
 			name = Release;
 		};
-		AC328CD62C1611270053A21A /* Debug */ = {
+		ACE1AC002C16325500EBF20C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"QrDemo/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"BBQrDemo/Preview Content\"";
 				DEVELOPMENT_TEAM = 4PZ3NJBYLZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -440,7 +443,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.bitcoinppl.QrDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bitcoinppl.BBQrDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -448,14 +451,14 @@
 			};
 			name = Debug;
 		};
-		AC328CD72C1611270053A21A /* Release */ = {
+		ACE1AC012C16325500EBF20C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"QrDemo/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"BBQrDemo/Preview Content\"";
 				DEVELOPMENT_TEAM = 4PZ3NJBYLZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -469,7 +472,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.bitcoinppl.QrDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bitcoinppl.BBQrDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -477,7 +480,7 @@
 			};
 			name = Release;
 		};
-		AC328CD92C1611270053A21A /* Debug */ = {
+		ACE1AC032C16325500EBF20C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -488,16 +491,16 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.bitcoinppl.QrDemoTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bitcoinppl.BBQrDemoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/QrDemo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/QrDemo";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BBQrDemo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BBQrDemo";
 			};
 			name = Debug;
 		};
-		AC328CDA2C1611270053A21A /* Release */ = {
+		ACE1AC042C16325500EBF20C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -508,16 +511,16 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.bitcoinppl.QrDemoTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bitcoinppl.BBQrDemoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/QrDemo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/QrDemo";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BBQrDemo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BBQrDemo";
 			};
 			name = Release;
 		};
-		AC328CDC2C1611270053A21A /* Debug */ = {
+		ACE1AC062C16325500EBF20C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -526,16 +529,16 @@
 				DEVELOPMENT_TEAM = 4PZ3NJBYLZ;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.bitcoinppl.QrDemoUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bitcoinppl.BBQrDemoUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = QrDemo;
+				TEST_TARGET_NAME = BBQrDemo;
 			};
 			name = Debug;
 		};
-		AC328CDD2C1611270053A21A /* Release */ = {
+		ACE1AC072C16325500EBF20C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -544,50 +547,50 @@
 				DEVELOPMENT_TEAM = 4PZ3NJBYLZ;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.bitcoinppl.QrDemoUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bitcoinppl.BBQrDemoUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = QrDemo;
+				TEST_TARGET_NAME = BBQrDemo;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		AC328CAC2C1611260053A21A /* Build configuration list for PBXProject "QrDemo" */ = {
+		ACE1ABD62C16325400EBF20C /* Build configuration list for PBXProject "BBQrDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				AC328CD32C1611270053A21A /* Debug */,
-				AC328CD42C1611270053A21A /* Release */,
+				ACE1ABFD2C16325500EBF20C /* Debug */,
+				ACE1ABFE2C16325500EBF20C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AC328CD52C1611270053A21A /* Build configuration list for PBXNativeTarget "QrDemo" */ = {
+		ACE1ABFF2C16325500EBF20C /* Build configuration list for PBXNativeTarget "BBQrDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				AC328CD62C1611270053A21A /* Debug */,
-				AC328CD72C1611270053A21A /* Release */,
+				ACE1AC002C16325500EBF20C /* Debug */,
+				ACE1AC012C16325500EBF20C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AC328CD82C1611270053A21A /* Build configuration list for PBXNativeTarget "QrDemoTests" */ = {
+		ACE1AC022C16325500EBF20C /* Build configuration list for PBXNativeTarget "BBQrDemoTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				AC328CD92C1611270053A21A /* Debug */,
-				AC328CDA2C1611270053A21A /* Release */,
+				ACE1AC032C16325500EBF20C /* Debug */,
+				ACE1AC042C16325500EBF20C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AC328CDB2C1611270053A21A /* Build configuration list for PBXNativeTarget "QrDemoUITests" */ = {
+		ACE1AC052C16325500EBF20C /* Build configuration list for PBXNativeTarget "BBQrDemoUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				AC328CDC2C1611270053A21A /* Debug */,
-				AC328CDD2C1611270053A21A /* Release */,
+				ACE1AC062C16325500EBF20C /* Debug */,
+				ACE1AC072C16325500EBF20C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -595,11 +598,18 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		AC328CDE2C1611510053A21A /* XCLocalSwiftPackageReference "../../../../bbqr-swift" */ = {
+		ACE1AC082C16326900EBF20C /* XCLocalSwiftPackageReference "../../../bbqr-swift" */ = {
 			isa = XCLocalSwiftPackageReference;
-			relativePath = "../../../../bbqr-swift";
+			relativePath = "../../../bbqr-swift";
 		};
 /* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		ACE1AC092C16326900EBF20C /* Bbqr */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Bbqr;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
-	rootObject = AC328CA92C1611260053A21A /* Project object */;
+	rootObject = ACE1ABD32C16325400EBF20C /* Project object */;
 }

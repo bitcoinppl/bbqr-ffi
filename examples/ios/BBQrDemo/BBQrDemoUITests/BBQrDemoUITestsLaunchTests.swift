@@ -1,13 +1,13 @@
 //
-//  QrDemoUITestsLaunchTests.swift
-//  QrDemoUITests
+//  BBQrDemoUITestsLaunchTests.swift
+//  BBQrDemoUITests
 //
 //  Created by Praveen Perera on 6/9/24.
 //
 
 import XCTest
 
-final class QrDemoUITestsLaunchTests: XCTestCase {
+final class BBQrDemoUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true
