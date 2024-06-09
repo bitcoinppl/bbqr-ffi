@@ -780,7 +780,7 @@ public struct SplitOptions {
 
     // Default memberwise initializers are never public by default, so we
     // declare one manually.
-    public init(encoding: Encoding, minSplitNumber: UInt16, maxSplitNumber: UInt16, minVersion: Version, maxVersion: Version) {
+    public init(encoding: Encoding, minSplitNumber: UInt16 = UInt16(1), maxSplitNumber: UInt16 = UInt16(1295), minVersion: Version, maxVersion: Version) {
         self.encoding = encoding
         self.minSplitNumber = minSplitNumber
         self.maxSplitNumber = maxSplitNumber
@@ -1691,6 +1691,13 @@ private struct FfiConverterSequenceString: FfiConverterRustBuffer {
     }
 }
 
+public func defaultSplitOptions() -> SplitOptions {
+    return try! FfiConverterTypeSplitOptions.lift(try! rustCall {
+        uniffi_bbqrffi_fn_func_default_split_options($0
+        )
+    })
+}
+
 private enum InitializationResult {
     case ok
     case contractVersionMismatch
@@ -1706,6 +1713,9 @@ private var initializationResult: InitializationResult {
     let scaffolding_contract_version = ffi_bbqrffi_uniffi_contract_version()
     if bindings_contract_version != scaffolding_contract_version {
         return InitializationResult.contractVersionMismatch
+    }
+    if uniffi_bbqrffi_checksum_func_default_split_options() != 18092 {
+        return InitializationResult.apiChecksumMismatch
     }
     if uniffi_bbqrffi_checksum_method_continuousjoiner_add_part() != 37717 {
         return InitializationResult.apiChecksumMismatch
