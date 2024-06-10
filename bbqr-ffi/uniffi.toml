@@ -1,2 +1,7 @@
 [bindings.swift]
 cdylib_name = "bbqrffi"
+
+[bindings.kotlin]
+package_name = "org.bitcoinppl"
+cdylib_name = "bbqrffi"
+

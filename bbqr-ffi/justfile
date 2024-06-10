@@ -1,3 +1,4 @@
 gen:
   cargo build --package bbqr-ffi
   cargo run --bin uniffi-bindgen generate --library target/debug/libbbqrffi.a --config uniffi.toml --language swift --out-dir ../bbqr-swift/Sources/Bbqr
+  cargo run --bin uniffi-bindgen generate --library target/debug/libbbqrffi.dylib --config uniffi.toml --language kotlin --out-dir ../bbqr-android/lib/src/main --no-format

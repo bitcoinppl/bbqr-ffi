@@ -83,7 +83,7 @@ afterEvaluate {
                     licenses {
                         license {
                             name.set("APACHE 2.0")
-                            url.set("https://github.com/bitcoinppl/bbqr/blob/master/LICENSE-APACHE")
+                            url.set("https://github.com/bitcoinppl/bbqr/blob/master/LICENSE")
                         }
                     }
                     developers {
