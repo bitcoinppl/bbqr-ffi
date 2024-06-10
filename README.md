@@ -1,8 +1,7 @@
 # Native language bindings for BBQr
 
 <p>
-    <a href="https://github.com/bitcoinppl/bbqr-ffi/blob/master/LICENSE"><img alt="Apache-2.0 Licensed" src="https://img.shields.io/badge/license-MIT%2FApache--2.0-blue.svg"/></a>
-    <a href="https://github.com/bitconppl/bbqr-ffi/actions?query=workflow%3ACI"><img alt="CI Status" src="https://github.com/bitconppl/bbqr-ffi/workflows/CI/badge.svg"></a>
+    <a href="https://github.com/bitcoinppl/bbqr-ffi/blob/master/LICENSE"><img alt="Apache-2.0 Licensed" src="https://img.shields.io/badge/Apache--2.0-blue.svg"/></a>
 </p>
 
 ## Readme
