@@ -7,18 +7,18 @@
 ## Readme
 
 The workspace in this repository creates the `libbbqrffi` multi-language library for the Rust-based
-[bbqr](https://github.com/satoshiportal/bbqr-rust) library.
+[bbqr] library.
 
-Each supported language and the platform(s) it's packaged for has its own directory. The Rust code in this project is in the bdk-ffi directory and is a wrapper around the [bdk] library to expose its APIs in a uniform way using the [mozilla/uniffi-rs] bindings generator for each supported target language.
+Each supported language and the platform(s) it's packaged for has its own directory. The Rust code in this project is in the `bbqr-ffi` directory and is a wrapper around the [bbqr] library to expose its APIs in a uniform way using the [mozilla/uniffi-rs] bindings generator for each supported target language.
 
 ## Supported target languages and platforms
 
-The below directories (a separate repository in the case of bdk-swift) include instructions for using, building, and publishing the native language binding for [bdk] supported by this project.
+The below directories (a separate repository in the case of bdk-swift) include instructions for using, building, and publishing the native language binding for [bbqr].
 
 | Language | Platform   | Published Package     | Building Documentation | API Docs |
 | -------- | ---------- | --------------------- | ---------------------- | -------- |
-| Kotlin   | Android    | coming soon           | coming soon            |          |
-| Swift    | iOS, macOS | [bbqr-swift (GitHub)] | [Readme bdk-swift]     |          |
+| Swift    | iOS, macOS | [bbqr-swift (GitHub)] | [Readme bbqr-swift]    |          |
+| Kotlin   | Android    | coming soon...        | coming soon...         |          |
 
 ## Building and Testing the Libraries
 
@@ -26,7 +26,6 @@ If you are familiar with the build tools for the specific languages you wish to 
 
 ```sh
 cd bbqr-swift
-
 just build
 ```
 
@@ -36,7 +35,7 @@ This library should compile with any combination of features with Rust 1.78.0.
 
 ## Contributing
 
-To add new structs and functions, see the [UniFFI User Guide](https://mozilla.github.io/uniffi-rs/) and the [uniffi-examples](https://thunderbiscuit.github.io/uniffi-examples/) repository.
+To add new structs and functions, see the [UniFFI User Guide] and the [uniffi-examples] repository.
 
 ## Developing language bindings using uniffi-rs
 
@@ -45,10 +44,18 @@ If you are interested in better understanding the base structure we use here in 
 ## Thanks
 
 - This project is made possible thanks to the wonderful work by the [mozilla/uniffi-rs] team.
-- Thanks to [SatoshiPortal/bbqr-rust](https://github.com/satoshiportal/bbqr-rust) for the rust implementation
-- Thanks to [bdk-ffi](https://github.com/bitcoindevkit/bdk-ffi), it was used as a template for publishing uniffi bindings
+- Thanks to [SatoshiPortal/bbqr-rust] for the rust implementation
+- Thanks to [bdk-ffi], it was used as a template for publishing uniffi bindings
 
+[bbqr]: https://github.com/satoshiportal/bbqr-rust
+[bbqr-swift]: https://github.com/bitcoinppl/bbqr-swift
 [Kotlin]: https://kotlinlang.org/
 [Android Studio]: https://developer.android.com/studio/
 [mozilla/uniffi-rs]: https://github.com/mozilla/uniffi-rs
 [uniffi-rs]: https://github.com/mozilla/uniffi-rs
+[bbqr-swift (Github)]: https://github.com/bitcoinppl/bbqr-swift
+[Readme bbqr-swift]: https://github.com/bitcoinppl/bbqr-swift
+[SatoshiPortal/bbqr-rust]: https://github.com/satoshiportal/bbqr-rust
+[UniFFI User Guide]: https://mozilla.github.io/uniffi-rs/
+[uniffi-examples]: https://thunderbiscuit.github.io/uniffi-examples/
+[bdk-ffi]: https://github.com/bitcoindevkit/bdk-ffi
