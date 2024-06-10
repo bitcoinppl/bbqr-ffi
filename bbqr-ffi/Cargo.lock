@@ -131,7 +131,6 @@ version = "0.3.1"
 source = "git+https://github.com/SatoshiPortal/bbqr-rust.git?rev=35328d0595c282d0af6158ffce38bff85b6f4027#35328d0595c282d0af6158ffce38bff85b6f4027"
 dependencies = [
  "data-encoding",
- "fast_qr",
  "flate2",
  "log",
  "radix_fmt",
@@ -140,7 +139,7 @@ dependencies = [
 
 [[package]]
 name = "bbqr-ffi"
-version = "0.1.0"
+version = "0.3.1"
 dependencies = [
  "assert_matches",
  "bbqr",
@@ -268,12 +267,6 @@ name = "data-encoding"
 version = "2.6.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "e8566979429cf69b49a5c740c60791108e86440e8be149bbea4fe54d2c32d6e2"
-
-[[package]]
-name = "fast_qr"
-version = "0.12.5"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a4415f4c642f04fea6ada6ff450018f3c28c1e7248528584718220c449d7f5f4"
 
 [[package]]
 name = "flate2"
