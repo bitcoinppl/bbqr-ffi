@@ -12,9 +12,3 @@ clean:
 
 publish-local:
   ./gradlew publishToMavenLocal -P localBuild
-
-test:
-  ./gradlew connectedAndroidTest
-
-test-specific TEST:
-  ./gradlew test --tests {{TEST}}
