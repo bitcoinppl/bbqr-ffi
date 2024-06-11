@@ -17,29 +17,19 @@ internal class UniFfiAndroidPlugin : Plugin<Project> {
             OS.OTHER -> throw Error("Cannot build Android library from current architecture")
         }
 
-        // if ANDROID_NDK_ROOT is not set, stop build
-        if (System.getenv("ANDROID_NDK_ROOT") == null) {
-            throw IllegalStateException("ANDROID_NDK_ROOT environment variable is not set; cannot build library")
-        }
-
         // arm64-v8a is the most popular hardware architecture for Android
         val buildAndroidAarch64Binary by tasks.register<Exec>("buildAndroidAarch64Binary") {
 
             workingDir("${projectDir}/../../bbqr-ffi")
-            val cargoArgs: List<String> = listOf("build", "--profile", "release-smaller", "--target", "aarch64-linux-android")
+            val cargoArgs: List<String> = listOf("ndk", "--target", "aarch64-linux-android", "build", "--package", "bbqr-ffi", "--profile", "release-smaller")
 
             executable("cargo")
             args(cargoArgs)
 
             environment(
                 // add build toolchain to PATH
-                Pair("PATH", "${System.getenv("PATH")}:${System.getenv("ANDROID_NDK_ROOT")}/toolchains/llvm/prebuilt/$llvmArchPath/bin"),
                 Pair("CFLAGS", "-D__ANDROID_MIN_SDK_VERSION__=21"),
-                Pair("AR", "llvm-ar"),
-                Pair("CARGO_TARGET_AARCH64_LINUX_ANDROID_LINKER", "aarch64-linux-android21-clang"),
-                Pair("CC", "aarch64-linux-android21-clang")
             )
-
             doLast {
                 println("Native library for bbqr-android on aarch64 built successfully")
             }
@@ -49,18 +39,14 @@ internal class UniFfiAndroidPlugin : Plugin<Project> {
         val buildAndroidX86_64Binary by tasks.register<Exec>("buildAndroidX86_64Binary") {
 
             workingDir("${project.projectDir}/../../bbqr-ffi")
-            val cargoArgs: List<String> = listOf("build", "--profile", "release-smaller", "--target", "x86_64-linux-android")
+            val cargoArgs: List<String> = listOf("ndk", "--target", "x86_64-linux-android", "build", "--package", "bbqr-ffi", "--profile", "release-smaller")
 
             executable("cargo")
             args(cargoArgs)
 
             environment(
                 // add build toolchain to PATH
-                Pair("PATH", "${System.getenv("PATH")}:${System.getenv("ANDROID_NDK_ROOT")}/toolchains/llvm/prebuilt/$llvmArchPath/bin"),
                 Pair("CFLAGS", "-D__ANDROID_MIN_SDK_VERSION__=21"),
-                Pair("AR", "llvm-ar"),
-                Pair("CARGO_TARGET_X86_64_LINUX_ANDROID_LINKER", "x86_64-linux-android21-clang"),
-                Pair("CC", "x86_64-linux-android21-clang")
             )
 
             doLast {
@@ -72,18 +58,14 @@ internal class UniFfiAndroidPlugin : Plugin<Project> {
         val buildAndroidArmv7Binary by tasks.register<Exec>("buildAndroidArmv7Binary") {
 
             workingDir("${project.projectDir}/../../bbqr-ffi")
-            val cargoArgs: List<String> = listOf("build", "--profile", "release-smaller", "--target", "armv7-linux-androideabi")
+            val cargoArgs: List<String> = listOf("ndk", "--target", "armv7-linux-androideabi", "build", "--package", "bbqr-ffi", "--profile", "release-smaller")
 
             executable("cargo")
             args(cargoArgs)
 
             environment(
                 // add build toolchain to PATH
-                Pair("PATH", "${System.getenv("PATH")}:${System.getenv("ANDROID_NDK_ROOT")}/toolchains/llvm/prebuilt/$llvmArchPath/bin"),
                 Pair("CFLAGS", "-D__ANDROID_MIN_SDK_VERSION__=21"),
-                Pair("AR", "llvm-ar"),
-                Pair("CARGO_TARGET_ARMV7_LINUX_ANDROIDEABI_LINKER", "armv7a-linux-androideabi21-clang"),
-                Pair("CC", "armv7a-linux-androideabi21-clang")
             )
 
             doLast {
@@ -126,11 +108,6 @@ internal class UniFfiAndroidPlugin : Plugin<Project> {
             val libraryPath = "${project.projectDir}/../../bbqr-ffi/target/aarch64-linux-android/release-smaller/libbbqrffi.so"
             workingDir("${project.projectDir}/../../bbqr-ffi")
             val cargoArgs: List<String> = listOf("run", "--bin", "uniffi-bindgen", "generate", "--library", libraryPath, "--language", "kotlin", "--out-dir", "../bbqr-android/lib/src/main/kotlin", "--no-format")
-
-            // The code above worked for uniffi 0.24.3 using the --library flag
-            // The code below works for uniffi 0.23.0
-            // workingDir("${project.projectDir}/../../bbqr-ffi")
-            // val cargoArgs: List<String> = listOf("run", "--bin", "uniffi-bindgen", "generate", "src/bbqr.udl", "--language", "kotlin", "--config", "uniffi-android.toml", "--out-dir", "../bbqr-android/lib/src/main/kotlin", "--no-format")
 
             executable("cargo")
             args(cargoArgs)
