@@ -3,7 +3,6 @@ default:
 
 build:
   ./gradlew buildAndroidLib
-  cd ../bbqr-ffi && just gen-android
 
 clean:
   rm -rf ../bbqr-ffi/target/
