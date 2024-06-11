@@ -1,6 +1,3 @@
-rootProject.name = "QrDemo"
-include(":app")
-
 pluginManagement {
     repositories {
         google {
@@ -29,4 +26,6 @@ dependencyResolutionManagement {
         }
     }
 }
-
+rootProject.name = "QrDemo"
+include(":app")
+ 

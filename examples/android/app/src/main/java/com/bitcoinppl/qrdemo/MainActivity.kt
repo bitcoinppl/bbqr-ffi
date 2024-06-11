@@ -10,17 +10,16 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import com.bitcoinppl.qrdemo.ui.theme.QrDemoTheme
 import androidx.compose.foundation.layout.*
 import androidx.compose.ui.unit.dp
-import org.bitcoin.bbqr.Bbqr
 import org.bitcoinppl.bbqr.ContinuousJoiner
 import org.bitcoinppl.bbqr.Encoding
 import org.bitcoinppl.bbqr.FileType
 import org.bitcoinppl.bbqr.Split
 import org.bitcoinppl.bbqr.SplitOptions
 import org.bitcoinppl.bbqr.Version
+import org.bitcoinppl.bbqr.ContinuousJoinResult
 
 fun largeString(): String {
     return "bacon".repeat(25)
@@ -28,7 +27,8 @@ fun largeString(): String {
 
 fun split(): List<String> {
     val large = largeString().toByteArray()
-    val options = SplitOptions(Encoding.HEX, Version.V01, Version.V02)
+    // val defaultOptions = defaultSplitOptions()
+    val options = SplitOptions(encoding = Encoding.HEX, minVersion = Version.V01, maxVersion = Version.V02)
     val split = Split.tryFromData(large, FileType.UNICODE_TEXT, options)
     return split.parts()
 }
@@ -37,9 +37,9 @@ fun continuousJoiner(parts: List<String>): String {
     val continuousJoiner = ContinuousJoiner()
     for (part in parts) {
         when (val result = continuousJoiner.addPart(part)) {
-            is ContinuousJoiner.Result.NotStarted -> println("not started")
-            is ContinuousJoiner.Result.InProgress -> println("added item, ${result.partsLeft} parts left")
-            is ContinuousJoiner.Result.Complete -> return String(result.joined.data())
+            is ContinuousJoinResult.NotStarted -> println("not started")
+            is ContinuousJoinResult.InProgress -> println("added item, ${result.partsLeft} parts left")
+            is ContinuousJoinResult.Complete -> return String(result.joined.data())
         }
     }
     return ""
@@ -52,9 +52,8 @@ fun ContentView() {
         split().forEach { part ->
             Text(text = part, modifier = Modifier.padding(2.dp))
         }
-        Divider(modifier = Modifier.padding(vertical = 30.dp))
         Text(text = "joined", modifier = Modifier.padding(bottom = 10.dp))
-        Text(text = continousJoiner(split()))
+        Text(text = continuousJoiner(parts = split()))
     }
 }
 
@@ -70,13 +69,5 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    QrDemoTheme {
-        Greeting("Android")
     }
 }
