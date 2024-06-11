@@ -926,7 +926,7 @@ private fun uniffiCheckApiChecksums(lib: UniffiLib) {
     if (lib.uniffi_bbqrffi_checksum_func_default_split_options() != 18092.toShort()) {
         throw RuntimeException("UniFFI API checksum mismatch: try cleaning and rebuilding your project")
     }
-    if (lib.uniffi_bbqrffi_checksum_method_continuousjoiner_add_part() != 37717.toShort()) {
+    if (lib.uniffi_bbqrffi_checksum_method_continuousjoiner_add_part() != 26183.toShort()) {
         throw RuntimeException("UniFFI API checksum mismatch: try cleaning and rebuilding your project")
     }
     if (lib.uniffi_bbqrffi_checksum_method_joined_data() != 37507.toShort()) {
@@ -1340,10 +1340,10 @@ open class ContinuousJoiner: Disposable, AutoCloseable, ContinuousJoinerInterfac
     }
 
     
-    @Throws(ContinuousJoinException::class)override fun `addPart`(`part`: kotlin.String): ContinuousJoinResult {
+    @Throws(JoinException::class)override fun `addPart`(`part`: kotlin.String): ContinuousJoinResult {
             return FfiConverterTypeContinuousJoinResult.lift(
     callWithPointer {
-    uniffiRustCallWithError(ContinuousJoinException) { _status ->
+    uniffiRustCallWithError(JoinException) { _status ->
     UniffiLib.INSTANCE.uniffi_bbqrffi_fn_method_continuousjoiner_add_part(
         it, FfiConverterString.lower(`part`),_status)
 }
@@ -1968,59 +1968,6 @@ public object FfiConverterTypeSplitOptions: FfiConverterRustBuffer<SplitOptions>
             FfiConverterTypeVersion.write(value.`minVersion`, buf)
             FfiConverterTypeVersion.write(value.`maxVersion`, buf)
     }
-}
-
-
-
-
-
-sealed class ContinuousJoinException(message: String): Exception(message) {
-        
-        class HeaderParseException(message: String) : ContinuousJoinException(message)
-        
-        class JoinException(message: String) : ContinuousJoinException(message)
-        
-        class DecodeException(message: String) : ContinuousJoinException(message)
-        
-
-    companion object ErrorHandler : UniffiRustCallStatusErrorHandler<ContinuousJoinException> {
-        override fun lift(error_buf: RustBuffer.ByValue): ContinuousJoinException = FfiConverterTypeContinuousJoinError.lift(error_buf)
-    }
-}
-
-public object FfiConverterTypeContinuousJoinError : FfiConverterRustBuffer<ContinuousJoinException> {
-    override fun read(buf: ByteBuffer): ContinuousJoinException {
-        
-            return when(buf.getInt()) {
-            1 -> ContinuousJoinException.HeaderParseException(FfiConverterString.read(buf))
-            2 -> ContinuousJoinException.JoinException(FfiConverterString.read(buf))
-            3 -> ContinuousJoinException.DecodeException(FfiConverterString.read(buf))
-            else -> throw RuntimeException("invalid error enum value, something is very wrong!!")
-        }
-        
-    }
-
-    override fun allocationSize(value: ContinuousJoinException): ULong {
-        return 4UL
-    }
-
-    override fun write(value: ContinuousJoinException, buf: ByteBuffer) {
-        when(value) {
-            is ContinuousJoinException.HeaderParseException -> {
-                buf.putInt(1)
-                Unit
-            }
-            is ContinuousJoinException.JoinException -> {
-                buf.putInt(2)
-                Unit
-            }
-            is ContinuousJoinException.DecodeException -> {
-                buf.putInt(3)
-                Unit
-            }
-        }.let { /* this makes the `when` an expression, which ensures it is exhaustive */ }
-    }
-
 }
 
 
