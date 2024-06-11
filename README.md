@@ -17,8 +17,8 @@ The below directories (a separate repository in the case of bdk-swift) include i
 
 | Language | Platform   | Published Package                  | Building Documentation | API Docs |
 | -------- | ---------- | ---------------------------------- | ---------------------- | -------- |
-| Swift    | iOS, macOS | [bbqr-swift (GitHub)]              | [Readme bbqr-swift]    |          |
-| Kotlin   | Android    | [bbqr-android (GitHub Maven Repo)] | [Readme bbqr-android]  |          |
+| Swift    | iOS, macOS | [bbqr-swift (GitHub)]              | [README bbqr-swift]    |          |
+| Kotlin   | Android    | [bbqr-android (GitHub Maven Repo)] | [README bbqr-android]  |          |
 
 ## Example Apps:
 
@@ -59,8 +59,8 @@ If you are interested in better understanding the base structure we use here in 
 [mozilla/uniffi-rs]: https://github.com/mozilla/uniffi-rs
 [uniffi-rs]: https://github.com/mozilla/uniffi-rs
 [bbqr-swift (Github)]: https://github.com/bitcoinppl/bbqr-swift
-[Readme bbqr-swift]: https://github.com/bitcoinppl/bbqr-swift
-[Readme bbqr-android]: https://github.com/bitcoinppl/bbqr-ffi/bbqr-android
+[README bbqr-swift]: https://github.com/bitcoinppl/bbqr-swift
+[README bbqr-android]: https://github.com/bitcoinppl/bbqr-ffi/tree/master/bbqr-android
 [SatoshiPortal/bbqr-rust]: https://github.com/satoshiportal/bbqr-rust
 [UniFFI User Guide]: https://mozilla.github.io/uniffi-rs/
 [uniffi-examples]: https://thunderbiscuit.github.io/uniffi-examples/
