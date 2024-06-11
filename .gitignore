@@ -1,3 +1,9 @@
+# ios
 /bbqr-swift/Bbqr.xcframework/**/*bbqrffiFFI
-
 examples/**/**/UserInterfaceState.xcuserstate
+
+# android
+bbqr-android/**/.gradle/
+bbqr-android/lib/src/main/jniLibs/
+bbqr-android/**/**/build
+bbqr-android/local.properties

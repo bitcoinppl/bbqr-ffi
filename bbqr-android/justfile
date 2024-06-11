@@ -1,0 +1,14 @@
+default:
+  just --list
+
+build:
+  ./gradlew buildAndroidLib
+
+clean:
+  rm -rf ../bbqr-ffi/target/
+  rm -rf ./build/
+  rm -rf ./lib/build/
+  rm -rf ./plugins/build/
+
+publish-local:
+  ./gradlew publishToMavenLocal -P localBuild
