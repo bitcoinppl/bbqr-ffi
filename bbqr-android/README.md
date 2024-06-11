@@ -12,23 +12,30 @@ repositories {
 }
 
 dependencies {
-    implementation("org.bitcoinppl:bbqr-android:<version>")
+    implementation("org.bitcoinppl:bbqr-android:0.3.1")
 }
 ```
 
-### Snapshot releases
-
-To use a snapshot release, specify the snapshot repository url in the `repositories` block and use the snapshot version in the `dependencies` block:
+Currently its released to a GitHub maven repository, so please at the repo to your `settings.gradle.kts` file
 
 ```kotlin
-repositories {
-    maven("https://s01.oss.sonatype.org/content/repositories/snapshots/")
-}
-
-dependencies {
-    implementation("org.bitcoinppl:bbqr-android:<version-SNAPSHOT>")
+dependencyResolutionManagement {
+    repositories {
+        google()
+        mavenCentral()
+        maven {
+            url = uri("https://maven.pkg.github.com/bitcoinppl/bbqr-ffi")
+            credentials {
+                username = System.getenv("GITHUB_USER")
+                password = System.getenv("GITHUB_TOKEN")
+            }
+        }
+    }
 }
 ```
+
+**NOTE**: For the above example to work you will need to use create a GitHub Personal Access Token (PAT)
+and provide that along with your `GITHUB_USER` as an environment variable.
 
 ### Example Projects
 

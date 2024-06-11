@@ -6,3 +6,4 @@ examples/**/**/UserInterfaceState.xcuserstate
 bbqr-android/**/.gradle/
 bbqr-android/lib/src/main/jniLibs/
 bbqr-android/**/**/build
+bbqr-android/local.properties
