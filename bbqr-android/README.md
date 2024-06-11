@@ -34,7 +34,7 @@ dependencyResolutionManagement {
 }
 ```
 
-**NOTE**: For the above example to work you will need to use create a GitHub Personal Access Token (PAT)
+**NOTE**: For the above example to work you will need to create a GitHub Personal Access Token (PAT)
 and provide that along with your `GITHUB_USER` as an environment variable.
 
 ### Example Projects
