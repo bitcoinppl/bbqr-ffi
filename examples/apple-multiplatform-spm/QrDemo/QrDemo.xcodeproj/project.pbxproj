@@ -14,7 +14,7 @@
 		ACD35FB22C1735FC000A7ACC /* QrDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD35FB12C1735FC000A7ACC /* QrDemoTests.swift */; };
 		ACD35FBC2C1735FC000A7ACC /* QrDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD35FBB2C1735FC000A7ACC /* QrDemoUITests.swift */; };
 		ACD35FBE2C1735FC000A7ACC /* QrDemoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD35FBD2C1735FC000A7ACC /* QrDemoUITestsLaunchTests.swift */; };
-		ACD35FCC2C173664000A7ACC /* Bbqr in Frameworks */ = {isa = PBXBuildFile; productRef = ACD35FCB2C173664000A7ACC /* Bbqr */; };
+		ACD35FCF2C191768000A7ACC /* Bbqr in Frameworks */ = {isa = PBXBuildFile; productRef = ACD35FCE2C191768000A7ACC /* Bbqr */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,7 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ACD35FCC2C173664000A7ACC /* Bbqr in Frameworks */,
+				ACD35FCF2C191768000A7ACC /* Bbqr in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,7 +148,7 @@
 			);
 			name = QrDemo;
 			packageProductDependencies = (
-				ACD35FCB2C173664000A7ACC /* Bbqr */,
+				ACD35FCE2C191768000A7ACC /* Bbqr */,
 			);
 			productName = QrDemo;
 			productReference = ACD35F9C2C1735FB000A7ACC /* QrDemo.app */;
@@ -223,7 +223,7 @@
 			);
 			mainGroup = ACD35F932C1735FB000A7ACC;
 			packageReferences = (
-				ACD35FCA2C173664000A7ACC /* XCRemoteSwiftPackageReference "bbqr-swift" */,
+				ACD35FCD2C191768000A7ACC /* XCRemoteSwiftPackageReference "bbqr-swift" */,
 			);
 			productRefGroup = ACD35F9D2C1735FB000A7ACC /* Products */;
 			projectDirPath = "";
@@ -627,7 +627,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		ACD35FCA2C173664000A7ACC /* XCRemoteSwiftPackageReference "bbqr-swift" */ = {
+		ACD35FCD2C191768000A7ACC /* XCRemoteSwiftPackageReference "bbqr-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/bitcoinppl/bbqr-swift";
 			requirement = {
@@ -638,9 +638,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		ACD35FCB2C173664000A7ACC /* Bbqr */ = {
+		ACD35FCE2C191768000A7ACC /* Bbqr */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = ACD35FCA2C173664000A7ACC /* XCRemoteSwiftPackageReference "bbqr-swift" */;
+			package = ACD35FCD2C191768000A7ACC /* XCRemoteSwiftPackageReference "bbqr-swift" */;
 			productName = Bbqr;
 		};
 /* End XCSwiftPackageProductDependency section */
