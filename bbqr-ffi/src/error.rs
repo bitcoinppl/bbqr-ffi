@@ -65,36 +65,6 @@ impl From<bbqr::encode::EncodeError> for EncodeError {
 }
 
 #[derive(Debug, thiserror::Error, PartialEq, Eq, Error)]
-pub enum ContinuousJoinError {
-    #[error(transparent)]
-    HeaderParseError { error: HeaderParseError },
-
-    #[error(transparent)]
-    JoinError { error: JoinError },
-
-    #[error(transparent)]
-    DecodeError { error: DecodeError },
-}
-
-impl From<bbqr::continuous_join::ContinuousJoinError> for ContinuousJoinError {
-    fn from(error: bbqr::continuous_join::ContinuousJoinError) -> Self {
-        match error {
-            bbqr::continuous_join::ContinuousJoinError::HeaderParseError(error) => {
-                Self::HeaderParseError {
-                    error: error.into(),
-                }
-            }
-            bbqr::continuous_join::ContinuousJoinError::JoinError(error) => Self::JoinError {
-                error: error.into(),
-            },
-            bbqr::continuous_join::ContinuousJoinError::DecodeError(error) => Self::DecodeError {
-                error: error.into(),
-            },
-        }
-    }
-}
-
-#[derive(Debug, thiserror::Error, PartialEq, Eq, Error)]
 pub enum HeaderParseError {
     #[error("No data found")]
     Empty,
@@ -189,6 +159,24 @@ impl From<bbqr::join::JoinError> for JoinError {
             bbqr::join::JoinError::DecodeError(error) => Self::DecodeError {
                 error: error.into(),
             },
+        }
+    }
+}
+
+impl From<bbqr::continuous_join::ContinuousJoinError> for JoinError {
+    fn from(value: bbqr::continuous_join::ContinuousJoinError) -> Self {
+        match value {
+            bbqr::continuous_join::ContinuousJoinError::HeaderParseError(error) => {
+                JoinError::HeaderParseError {
+                    error: error.into(),
+                }
+            }
+            bbqr::continuous_join::ContinuousJoinError::JoinError(error) => error.into(),
+            bbqr::continuous_join::ContinuousJoinError::DecodeError(error) => {
+                JoinError::DecodeError {
+                    error: error.into(),
+                }
+            }
         }
     }
 }

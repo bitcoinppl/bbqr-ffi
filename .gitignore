@@ -5,4 +5,4 @@ examples/**/**/UserInterfaceState.xcuserstate
 # android
 bbqr-android/**/.gradle/
 bbqr-android/lib/src/main/jniLibs/
-bbqr-android/plugins/build
+bbqr-android/**/**/build

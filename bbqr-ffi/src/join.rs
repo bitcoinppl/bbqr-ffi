@@ -6,7 +6,6 @@ use uniffi::Object;
 
 use bbqr::continuous_join::ContinuousJoiner as CoreContinuousJoiner;
 
-use crate::error::ContinuousJoinError;
 use crate::error::JoinError;
 use crate::types::Encoding;
 use crate::types::FileType;
@@ -25,7 +24,7 @@ pub struct Joined {
 pub enum ContinuousJoinResult {
     NotStarted,
     InProgress { parts_left: u16 },
-    Complete(Arc<Joined>),
+    Complete { joined: Arc<Joined> },
 }
 
 impl Default for ContinuousJoiner {
@@ -41,7 +40,7 @@ impl ContinuousJoiner {
         Self(Mutex::new(CoreContinuousJoiner::new()))
     }
 
-    pub fn add_part(&self, part: String) -> Result<ContinuousJoinResult, ContinuousJoinError> {
+    pub fn add_part(&self, part: String) -> Result<ContinuousJoinResult, JoinError> {
         let result = self.0.lock().unwrap().add_part(part)?;
 
         Ok(result.into())
@@ -78,9 +77,9 @@ impl From<bbqr::continuous_join::ContinuousJoinResult> for ContinuousJoinResult 
                     parts_left: parts_left as u16,
                 }
             }
-            bbqr::continuous_join::ContinuousJoinResult::Complete(joined) => {
-                Self::Complete(Arc::new(joined.into()))
-            }
+            bbqr::continuous_join::ContinuousJoinResult::Complete(joined) => Self::Complete {
+                joined: Arc::new(joined.into()),
+            },
         }
     }
 }

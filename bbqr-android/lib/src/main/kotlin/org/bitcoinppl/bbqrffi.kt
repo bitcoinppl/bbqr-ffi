@@ -1974,93 +1974,48 @@ public object FfiConverterTypeSplitOptions: FfiConverterRustBuffer<SplitOptions>
 
 
 
-sealed class ContinuousJoinException: Exception() {
-    
-    class HeaderParseException(
+sealed class ContinuousJoinException(message: String): Exception(message) {
         
-        val `error`: HeaderParseError
-        ) : ContinuousJoinException() {
-        override val message
-            get() = "error=${ `error` }"
-    }
-    
-    class JoinException(
+        class HeaderParseException(message: String) : ContinuousJoinException(message)
         
-        val `error`: JoinException
-        ) : ContinuousJoinException() {
-        override val message
-            get() = "error=${ `error` }"
-    }
-    
-    class DecodeException(
+        class JoinException(message: String) : ContinuousJoinException(message)
         
-        val `error`: DecodeError
-        ) : ContinuousJoinException() {
-        override val message
-            get() = "error=${ `error` }"
-    }
-    
+        class DecodeException(message: String) : ContinuousJoinException(message)
+        
 
     companion object ErrorHandler : UniffiRustCallStatusErrorHandler<ContinuousJoinException> {
         override fun lift(error_buf: RustBuffer.ByValue): ContinuousJoinException = FfiConverterTypeContinuousJoinError.lift(error_buf)
     }
-
-    
 }
 
 public object FfiConverterTypeContinuousJoinError : FfiConverterRustBuffer<ContinuousJoinException> {
     override fun read(buf: ByteBuffer): ContinuousJoinException {
         
-
-        return when(buf.getInt()) {
-            1 -> ContinuousJoinException.HeaderParseException(
-                FfiConverterTypeHeaderParseError.read(buf),
-                )
-            2 -> ContinuousJoinException.JoinException(
-                FfiConverterTypeJoinError.read(buf),
-                )
-            3 -> ContinuousJoinException.DecodeException(
-                FfiConverterTypeDecodeError.read(buf),
-                )
+            return when(buf.getInt()) {
+            1 -> ContinuousJoinException.HeaderParseException(FfiConverterString.read(buf))
+            2 -> ContinuousJoinException.JoinException(FfiConverterString.read(buf))
+            3 -> ContinuousJoinException.DecodeException(FfiConverterString.read(buf))
             else -> throw RuntimeException("invalid error enum value, something is very wrong!!")
         }
+        
     }
 
     override fun allocationSize(value: ContinuousJoinException): ULong {
-        return when(value) {
-            is ContinuousJoinException.HeaderParseException -> (
-                // Add the size for the Int that specifies the variant plus the size needed for all fields
-                4UL
-                + FfiConverterTypeHeaderParseError.allocationSize(value.`error`)
-            )
-            is ContinuousJoinException.JoinException -> (
-                // Add the size for the Int that specifies the variant plus the size needed for all fields
-                4UL
-                + FfiConverterTypeJoinError.allocationSize(value.`error`)
-            )
-            is ContinuousJoinException.DecodeException -> (
-                // Add the size for the Int that specifies the variant plus the size needed for all fields
-                4UL
-                + FfiConverterTypeDecodeError.allocationSize(value.`error`)
-            )
-        }
+        return 4UL
     }
 
     override fun write(value: ContinuousJoinException, buf: ByteBuffer) {
         when(value) {
             is ContinuousJoinException.HeaderParseException -> {
                 buf.putInt(1)
-                FfiConverterTypeHeaderParseError.write(value.`error`, buf)
                 Unit
             }
             is ContinuousJoinException.JoinException -> {
                 buf.putInt(2)
-                FfiConverterTypeJoinError.write(value.`error`, buf)
                 Unit
             }
             is ContinuousJoinException.DecodeException -> {
                 buf.putInt(3)
-                FfiConverterTypeDecodeError.write(value.`error`, buf)
                 Unit
             }
         }.let { /* this makes the `when` an expression, which ensures it is exhaustive */ }
@@ -2081,7 +2036,7 @@ sealed class ContinuousJoinResult: Disposable  {
     }
     
     data class Complete(
-        val v1: Joined) : ContinuousJoinResult() {
+        val `joined`: Joined) : ContinuousJoinResult() {
         companion object
     }
     
@@ -2101,7 +2056,7 @@ sealed class ContinuousJoinResult: Disposable  {
             is ContinuousJoinResult.Complete -> {
                 
     Disposable.destroy(
-        this.``)
+        this.`joined`)
                 
             }
         }.let { /* this makes the `when` an expression, which ensures it is exhaustive */ }
@@ -2142,7 +2097,7 @@ public object FfiConverterTypeContinuousJoinResult : FfiConverterRustBuffer<Cont
             // Add the size for the Int that specifies the variant plus the size needed for all fields
             (
                 4UL
-                + FfiConverterTypeJoined.allocationSize(value.v1)
+                + FfiConverterTypeJoined.allocationSize(value.`joined`)
             )
         }
     }
@@ -2160,7 +2115,7 @@ public object FfiConverterTypeContinuousJoinResult : FfiConverterRustBuffer<Cont
             }
             is ContinuousJoinResult.Complete -> {
                 buf.putInt(3)
-                FfiConverterTypeJoined.write(value.v1, buf)
+                FfiConverterTypeJoined.write(value.`joined`, buf)
                 Unit
             }
         }.let { /* this makes the `when` an expression, which ensures it is exhaustive */ }
