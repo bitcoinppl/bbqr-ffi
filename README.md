@@ -15,10 +15,15 @@ Each supported language and the platform(s) it's packaged for has its own direct
 
 The below directories (a separate repository in the case of bdk-swift) include instructions for using, building, and publishing the native language binding for [bbqr].
 
-| Language | Platform   | Published Package     | Building Documentation | API Docs |
-| -------- | ---------- | --------------------- | ---------------------- | -------- |
-| Swift    | iOS, macOS | [bbqr-swift (GitHub)] | [Readme bbqr-swift]    |          |
-| Kotlin   | Android    | coming soon...        | coming soon...         |          |
+| Language | Platform   | Published Package                  | Building Documentation | API Docs |
+| -------- | ---------- | ---------------------------------- | ---------------------- | -------- |
+| Swift    | iOS, macOS | [bbqr-swift (GitHub)]              | [Readme bbqr-swift]    |          |
+| Kotlin   | Android    | [bbqr-android (GitHub Maven Repo)] | [Readme bbqr-android]  |          |
+
+## Example Apps:
+
+- iOS/MacOs: [examples/apple-multiplatform-spm](https://github.com/bitcoinppl/bbqr-ffi/tree/master/examples/apple-multiplatform-spm/QrDemo)
+- Android: [examples/android](https://github.com/bitcoinppl/bbqr-ffi/tree/master/examples/android)
 
 ## Building and Testing the Libraries
 
@@ -55,7 +60,9 @@ If you are interested in better understanding the base structure we use here in 
 [uniffi-rs]: https://github.com/mozilla/uniffi-rs
 [bbqr-swift (Github)]: https://github.com/bitcoinppl/bbqr-swift
 [Readme bbqr-swift]: https://github.com/bitcoinppl/bbqr-swift
+[Readme bbqr-android]: https://github.com/bitcoinppl/bbqr-ffi/bbqr-android
 [SatoshiPortal/bbqr-rust]: https://github.com/satoshiportal/bbqr-rust
 [UniFFI User Guide]: https://mozilla.github.io/uniffi-rs/
 [uniffi-examples]: https://thunderbiscuit.github.io/uniffi-examples/
 [bdk-ffi]: https://github.com/bitcoindevkit/bdk-ffi
+[bbqr-android (GitHub Maven Repo)]: https://github.com/bitcoinppl/bbqr-ffi/packages/2175804
