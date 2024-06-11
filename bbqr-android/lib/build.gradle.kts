@@ -10,11 +10,11 @@ plugins {
     id("org.gradle.signing")
 
     // Custom plugin to generate the native libs and bindings file
-    id("org.bitcoinppl.plugins.generate-android-bindings")
+    id("org.bitcoinppl.bbqr.plugins.generate-android-bindings")
 }
 
 android {
-    namespace = "org.bitcoinppl"
+    namespace = "org.bitcoinppl.bbqr"
     compileSdk = 34
 
     defaultConfig {
@@ -69,6 +69,17 @@ dependencies {
 
 afterEvaluate {
     publishing {
+        repositories {
+            maven {
+                name = (project.findProperty("gpr.repo.name") ?: "GitHubPackages").toString()
+                url = uri((project.findProperty("gpr.repo.url") ?: "https://maven.pkg.github.com/bitcoinppl.bbqr/bbqr-ffi").toString())
+                credentials {
+                    username = (project.findProperty("gpr.user") ?: System.getenv("GITHUB_ACTOR")).toString()
+                    password = (project.findProperty("gpr.key") ?: System.getenv("GITHUB_TOKEN")).toString()
+                }
+            }
+        }
+
         publications {
             create<MavenPublication>("maven") {
                 groupId = "org.bitcoinppl"
@@ -100,9 +111,11 @@ afterEvaluate {
                     }
                 }
             }
+
+
         }
     }
-    
+   
     // This is required because we must ensure the moveNativeAndroidLibs task is executed after
     // the mergeReleaseJniLibFolders (hard requirement introduced by our upgrade to Gradle 8.7)
     tasks.named("mergeReleaseJniLibFolders") {
@@ -117,11 +130,12 @@ signing {
     if (project.hasProperty("localBuild")) {
         isRequired = false
     }
+    
+    val signingKeyId: String? = project.findProperty("signingKeyId") as String? ?: System.getenv("SIGNING_KEY_ID")
+    var signingKey: String? = project.findProperty("signingKey") as String? ?: System.getenv("SIGNING_KEY")
+    val signingPassword: String? = project.findProperty("signingPassword") as String? ?: System.getenv("SIGNING_PASSWORD")
 
-    val signingKeyId: String? by project
-    val signingKey: String? by project
-    val signingPassword: String? by project
-    useInMemoryPgpKeys(signingKeyId, signingKey, signingPassword)
+    useInMemoryPgpKeys(signingKey, signingPassword)
     sign(publishing.publications)
 }
 

@@ -6,7 +6,7 @@ plugins {
 gradlePlugin {
     plugins {
         create("uniFfiAndroidBindings") {
-            id = "org.bitcoinppl.plugins.generate-android-bindings"
+            id = "org.bitcoinppl.bbqr.plugins.generate-android-bindings"
             implementationClass = "org.bitcoinppl.plugins.UniFfiAndroidPlugin"
         }
     }

@@ -3,7 +3,7 @@
 
 @file:Suppress("NAME_SHADOWING")
 
-package org.bitcoinppl;
+package org.bitcoinppl.bbqr;
 
 // Common helper code.
 //

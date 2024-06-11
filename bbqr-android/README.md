@@ -80,6 +80,14 @@ cd bbqr-android
 
 ## How to publish to your local Maven repo
 
+Install the required JDK version 17.
+
+```shell
+brew install openjdk@17
+```
+
+Run the gradlew command to publish to local
+
 ```shell
 cd bbqr-android
 ./gradlew publishToMavenLocal -P localBuild

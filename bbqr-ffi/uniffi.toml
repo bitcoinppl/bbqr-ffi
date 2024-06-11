@@ -2,6 +2,6 @@
 cdylib_name = "bbqrffi"
 
 [bindings.kotlin]
-package_name = "org.bitcoinppl"
+package_name = "org.bitcoinppl.bbqr"
 cdylib_name = "bbqrffi"
 
