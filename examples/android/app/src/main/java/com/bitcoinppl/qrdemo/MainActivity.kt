@@ -14,13 +14,13 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.bitcoinppl.qrdemo.ui.theme.QrDemoTheme
 import androidx.compose.foundation.layout.*
 import androidx.compose.ui.unit.dp
-import com.bbqr.Bbqr
-import com.bbqr.ContinuousJoiner
-import com.bbqr.Encoding
-import com.bbqr.FileType
-import com.bbqr.Split
-import com.bbqr.SplitOptions
-import com.bbqr.Version
+import org.bbqr.Bbqr
+import org.bbqr.ContinuousJoiner
+import org.bbqr.Encoding
+import org.bbqr.FileType
+import org.bbqr.Split
+import org.bbqr.SplitOptions
+import org.bbqr.Version
 
 fun largeString(): String {
     return "bacon".repeat(25)
