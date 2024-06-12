@@ -18,9 +18,7 @@ dependencies {
 
 ### Example Projects
 
-- [bbqr-kotlin-example-wallet](https://github.com/bitcoindevkit/bbqr-kotlin-example-wallet)
-- [Devkit Wallet](https://github.com/thunderbiscuit/devkit-wallet)
-- [Padawan Wallet](https://github.com/thunderbiscuit/padawan-wallet)
+- [demo app](https://github.com/bitcoinppl/bbqr-ffi/examples/android)
 
 ### How to build
 
