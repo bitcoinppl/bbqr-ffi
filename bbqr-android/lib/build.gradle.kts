@@ -135,7 +135,7 @@ signing {
     var signingKey: String? = project.findProperty("signingKey") as String? ?: System.getenv("SIGNING_KEY")
     val signingPassword: String? = project.findProperty("signingPassword") as String? ?: System.getenv("SIGNING_PASSWORD")
 
-    useInMemoryPgpKeys(signingKey, signingPassword)
+    useGpgCmd()
     sign(publishing.publications)
 }
 
