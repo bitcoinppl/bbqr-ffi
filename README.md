@@ -15,10 +15,10 @@ Each supported language and the platform(s) it's packaged for has its own direct
 
 The below directories (a separate repository in the case of bdk-swift) include instructions for using, building, and publishing the native language binding for [bbqr].
 
-| Language | Platform   | Published Package                  | Building Documentation | API Docs |
-| -------- | ---------- | ---------------------------------- | ---------------------- | -------- |
-| Swift    | iOS, macOS | [bbqr-swift (GitHub)]              | [README bbqr-swift]    |          |
-| Kotlin   | Android    | [bbqr-android (GitHub Maven Repo)] | [README bbqr-android]  |          |
+| Language | Platform   | Published Package              | Building Documentation | API Docs |
+| -------- | ---------- | ------------------------------ | ---------------------- | -------- |
+| Swift    | iOS, macOS | [bbqr-swift (GitHub)]          | [README bbqr-swift]    |          |
+| Kotlin   | Android    | [bbqr-android (Central Maven)] | [README bbqr-android]  |          |
 
 ## Example Apps:
 
@@ -65,4 +65,4 @@ If you are interested in better understanding the base structure we use here in 
 [UniFFI User Guide]: https://mozilla.github.io/uniffi-rs/
 [uniffi-examples]: https://thunderbiscuit.github.io/uniffi-examples/
 [bdk-ffi]: https://github.com/bitcoindevkit/bdk-ffi
-[bbqr-android (GitHub Maven Repo)]: https://github.com/bitcoinppl/bbqr-ffi/packages/2175804
+[bbqr-android (Central Maven)]: https://central.sonatype.com/artifact/org.bitcoinppl/bbqr-android/overview

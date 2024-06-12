@@ -16,27 +16,6 @@ dependencies {
 }
 ```
 
-Currently its released to a GitHub maven repository, so please at the repo to your `settings.gradle.kts` file
-
-```kotlin
-dependencyResolutionManagement {
-    repositories {
-        google()
-        mavenCentral()
-        maven {
-            url = uri("https://maven.pkg.github.com/bitcoinppl/bbqr-ffi")
-            credentials {
-                username = System.getenv("GITHUB_USER")
-                password = System.getenv("GITHUB_TOKEN")
-            }
-        }
-    }
-}
-```
-
-**NOTE**: For the above example to work you will need to create a GitHub Personal Access Token (PAT)
-and provide that along with your `GITHUB_USER` as an environment variable.
-
 ### Example Projects
 
 - [bbqr-kotlin-example-wallet](https://github.com/bitcoindevkit/bbqr-kotlin-example-wallet)
