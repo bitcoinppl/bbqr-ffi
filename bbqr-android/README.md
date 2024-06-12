@@ -18,7 +18,7 @@ dependencies {
 
 ### Example Projects
 
-- [demo app](https://github.com/bitcoinppl/bbqr-ffi/examples/android)
+- [demo app](https://github.com/bitcoinppl/bbqr-ffi/tree/master/examples/android)
 
 ### How to build
 
@@ -30,7 +30,7 @@ _Note that Kotlin version `1.9.23` or later is required to build the library._
 git clone https://github.com/bitcoinppl/bbqr-ffi
 ```
 
-2. Install Rust (note that we are currently building using Rust 1.77.1):
+2. Install Rust (note that we are currently building using Rust 1.78.0):
 
 ```shell
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
