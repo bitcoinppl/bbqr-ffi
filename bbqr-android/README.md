@@ -16,32 +16,9 @@ dependencies {
 }
 ```
 
-Currently its released to a GitHub maven repository, so please at the repo to your `settings.gradle.kts` file
-
-```kotlin
-dependencyResolutionManagement {
-    repositories {
-        google()
-        mavenCentral()
-        maven {
-            url = uri("https://maven.pkg.github.com/bitcoinppl/bbqr-ffi")
-            credentials {
-                username = System.getenv("GITHUB_USER")
-                password = System.getenv("GITHUB_TOKEN")
-            }
-        }
-    }
-}
-```
-
-**NOTE**: For the above example to work you will need to create a GitHub Personal Access Token (PAT)
-and provide that along with your `GITHUB_USER` as an environment variable.
-
 ### Example Projects
 
-- [bbqr-kotlin-example-wallet](https://github.com/bitcoindevkit/bbqr-kotlin-example-wallet)
-- [Devkit Wallet](https://github.com/thunderbiscuit/devkit-wallet)
-- [Padawan Wallet](https://github.com/thunderbiscuit/padawan-wallet)
+- [demo app](https://github.com/bitcoinppl/bbqr-ffi/tree/master/examples/android)
 
 ### How to build
 
@@ -53,7 +30,7 @@ _Note that Kotlin version `1.9.23` or later is required to build the library._
 git clone https://github.com/bitcoinppl/bbqr-ffi
 ```
 
-2. Install Rust (note that we are currently building using Rust 1.77.1):
+2. Install Rust (note that we are currently building using Rust 1.78.0):
 
 ```shell
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
