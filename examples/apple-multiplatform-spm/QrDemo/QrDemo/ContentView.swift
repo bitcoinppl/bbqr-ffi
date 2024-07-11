@@ -25,6 +25,7 @@ func split() throws -> [String] {
     return split.parts()
 }
 
+// continousJoiner allows you to join parts one by one as the come in from the QR code scanner
 func continousJoiner(parts: [String]) throws -> String {
     let continousJoiner = ContinuousJoiner()
 
@@ -42,18 +43,33 @@ func continousJoiner(parts: [String]) throws -> String {
     return ""
 }
 
+// if you already have all the parts you can join them together at once using Joined
+func bulkJoin(parts: [String]) throws -> String {
+    let joined = try Joined.tryFromParts(parts: parts)
+    return String(decoding: joined.data(), as: UTF8.self)
+}
+
 struct ContentView: View {
     var body: some View {
         VStack {
-            Text("split")
-                .padding(.bottom, 10)
-            try! ForEach(split(), id: \.self) {
-                Text($0).padding(2)
+            ScrollView {
+                Text("split")
+                    .padding(.bottom, 10)
+                try! ForEach(split(), id: \.self) {
+                    Text($0).padding(2)
+                }
+
+                Divider().padding(30)
+
+                Text("joined using continous joiner")
+                    .padding(.bottom, 10)
+                try! Text(continousJoiner(parts: split()))
+
+                Divider().padding(30)
+                Text("joined at once")
+                    .padding(.bottom, 10)
+                try! Text(bulkJoin(parts: split()))
             }
-            Divider().padding(30)
-            Text("joined")
-                .padding(.bottom, 10)
-            try! Text(continousJoiner(parts: split()))
         }
         .padding()
     }
