@@ -50,6 +50,11 @@ impl ContinuousJoiner {
 #[uniffi::export]
 impl Joined {
     #[uniffi::constructor]
+    pub fn new(parts: Vec<String>) -> Result<Self, JoinError> {
+        Self::try_from_parts(parts)
+    }
+
+    #[uniffi::constructor]
     pub fn try_from_parts(parts: Vec<String>) -> Result<Self, JoinError> {
         let joined = bbqr::join::Joined::try_from_parts(parts)?;
         Ok(Self::from(joined))
