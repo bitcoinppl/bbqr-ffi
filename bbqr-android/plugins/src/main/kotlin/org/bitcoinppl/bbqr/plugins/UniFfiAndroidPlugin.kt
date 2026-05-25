@@ -17,6 +17,17 @@ internal class UniFfiAndroidPlugin : Plugin<Project> {
             OS.OTHER -> throw Error("Cannot build Android library from current architecture")
         }
 
+        val androidElfAlignmentRustFlags =
+            "-C link-arg=-Wl,-z,max-page-size=16384 -C link-arg=-Wl,-z,common-page-size=16384"
+
+        fun targetRustFlags(target: String): Pair<String, String> {
+            val envName = "CARGO_TARGET_${target.uppercase().replace("-", "_")}_RUSTFLAGS"
+            val existingRustFlags = System.getenv(envName)?.takeIf { it.isNotBlank() }
+            val rustFlags = listOfNotNull(existingRustFlags, androidElfAlignmentRustFlags).joinToString(" ")
+
+            return Pair(envName, rustFlags)
+        }
+
         // arm64-v8a is the most popular hardware architecture for Android
         val buildAndroidAarch64Binary by tasks.register<Exec>("buildAndroidAarch64Binary") {
 
@@ -29,6 +40,7 @@ internal class UniFfiAndroidPlugin : Plugin<Project> {
             environment(
                 // add build toolchain to PATH
                 Pair("CFLAGS", "-D__ANDROID_MIN_SDK_VERSION__=21"),
+                targetRustFlags("aarch64-linux-android"),
             )
             doLast {
                 println("Native library for bbqr-android on aarch64 built successfully")
@@ -47,6 +59,7 @@ internal class UniFfiAndroidPlugin : Plugin<Project> {
             environment(
                 // add build toolchain to PATH
                 Pair("CFLAGS", "-D__ANDROID_MIN_SDK_VERSION__=21"),
+                targetRustFlags("x86_64-linux-android"),
             )
 
             doLast {
@@ -66,6 +79,7 @@ internal class UniFfiAndroidPlugin : Plugin<Project> {
             environment(
                 // add build toolchain to PATH
                 Pair("CFLAGS", "-D__ANDROID_MIN_SDK_VERSION__=21"),
+                targetRustFlags("armv7-linux-androideabi"),
             )
 
             doLast {

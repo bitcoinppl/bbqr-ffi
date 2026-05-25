@@ -1,9 +1,11 @@
+android-rustflags := "-C link-arg=-Wl,-z,max-page-size=16384 -C link-arg=-Wl,-z,common-page-size=16384"
+
 gen:
   just gen-android
   just gen-swift
 
 gen-android:
-  cargo ndk --target aarch64-linux-android build --package bbqr-ffi 
+  CARGO_TARGET_AARCH64_LINUX_ANDROID_RUSTFLAGS="${CARGO_TARGET_AARCH64_LINUX_ANDROID_RUSTFLAGS:+$CARGO_TARGET_AARCH64_LINUX_ANDROID_RUSTFLAGS }{{android-rustflags}}" cargo ndk --target aarch64-linux-android build --package bbqr-ffi
   cargo run --bin uniffi-bindgen generate --library target/aarch64-linux-android/debug/libbbqrffi.so --config uniffi.toml --language kotlin --out-dir ../bbqr-android/lib/src/main/kotlin --no-format
 
 gen-swift:
