@@ -12,7 +12,7 @@ repositories {
 }
 
 dependencies {
-    implementation("org.bitcoinppl:bbqr-android:0.3.1")
+    implementation("org.bitcoinppl:bbqr-android:0.4.1")
 }
 ```
 

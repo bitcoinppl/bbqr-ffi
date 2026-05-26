@@ -719,6 +719,8 @@ internal interface UniffiForeignFutureCompleteVoid : com.sun.jna.Callback {
 
 
 
+
+
 // A JNA Library to expose the extern-C FFI definitions.
 // This is an implementation detail which will be called internally by the public API.
 
@@ -750,6 +752,8 @@ internal interface UniffiLib : Library {
     ): Pointer
     fun uniffi_bbqrffi_fn_free_joined(`ptr`: Pointer,uniffi_out_err: UniffiRustCallStatus, 
     ): Unit
+    fun uniffi_bbqrffi_fn_constructor_joined_new(`parts`: RustBuffer.ByValue,uniffi_out_err: UniffiRustCallStatus, 
+    ): Pointer
     fun uniffi_bbqrffi_fn_constructor_joined_try_from_parts(`parts`: RustBuffer.ByValue,uniffi_out_err: UniffiRustCallStatus, 
     ): Pointer
     fun uniffi_bbqrffi_fn_method_joined_data(`ptr`: Pointer,uniffi_out_err: UniffiRustCallStatus, 
@@ -902,6 +906,8 @@ internal interface UniffiLib : Library {
     ): Short
     fun uniffi_bbqrffi_checksum_constructor_continuousjoiner_new(
     ): Short
+    fun uniffi_bbqrffi_checksum_constructor_joined_new(
+    ): Short
     fun uniffi_bbqrffi_checksum_constructor_joined_try_from_parts(
     ): Short
     fun uniffi_bbqrffi_checksum_constructor_split_try_from_data(
@@ -948,6 +954,9 @@ private fun uniffiCheckApiChecksums(lib: UniffiLib) {
         throw RuntimeException("UniFFI API checksum mismatch: try cleaning and rebuilding your project")
     }
     if (lib.uniffi_bbqrffi_checksum_constructor_continuousjoiner_new() != 24345.toShort()) {
+        throw RuntimeException("UniFFI API checksum mismatch: try cleaning and rebuilding your project")
+    }
+    if (lib.uniffi_bbqrffi_checksum_constructor_joined_new() != 59570.toShort()) {
         throw RuntimeException("UniFFI API checksum mismatch: try cleaning and rebuilding your project")
     }
     if (lib.uniffi_bbqrffi_checksum_constructor_joined_try_from_parts() != 46929.toShort()) {
@@ -1512,6 +1521,13 @@ open class Joined: Disposable, AutoCloseable, JoinedInterface {
         this.pointer = null
         this.cleanable = UniffiLib.CLEANER.register(this, UniffiCleanAction(pointer))
     }
+    constructor(`parts`: List<kotlin.String>) :
+        this(
+    uniffiRustCallWithError(JoinException) { _status ->
+    UniffiLib.INSTANCE.uniffi_bbqrffi_fn_constructor_joined_new(
+        FfiConverterSequenceString.lower(`parts`),_status)
+}
+    )
 
     protected val pointer: Pointer?
     protected val cleanable: UniffiCleaner.Cleanable
