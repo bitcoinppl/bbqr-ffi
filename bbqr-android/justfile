@@ -12,3 +12,9 @@ clean:
 
 publish-local:
   ./gradlew publishToMavenLocal -P localBuild
+
+publish-github:
+  ./gradlew publishMavenPublicationToGitHubPackagesRepository
+
+publish-central:
+  ./gradlew publishAggregatedPublicationToCentralPortal
