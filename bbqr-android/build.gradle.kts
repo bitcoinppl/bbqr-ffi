@@ -18,8 +18,6 @@ nmcp {
   publishAllProjectsProbablyBreakingProjectIsolation {
     username = sonatypeUsername ?: System.getenv("SONATYPE_USERNAME")
     password = sonatypePassword ?: System.getenv("SONATYPE_PASSWORD")
-    // publicationType = "AUTOMATIC"
-    publicationType = "USER_MANAGED"
+    publicationType = "AUTOMATIC"
   }
 }
-

@@ -24,6 +24,11 @@ android {
         consumerProguardFiles("consumer-rules.pro")
     }
 
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+
     buildTypes {
         getByName("release") {
             isMinifyEnabled = false
@@ -44,12 +49,6 @@ kotlin {
         kotlinOptions {
             jvmTarget = "17"
         }
-    }
-}
-
-java {
-    toolchain {
-        languageVersion.set(JavaLanguageVersion.of(17))
     }
 }
 
@@ -74,8 +73,8 @@ afterEvaluate {
                 name = (project.findProperty("gpr.repo.name") ?: "GitHubPackages").toString()
                 url = uri((project.findProperty("gpr.repo.url") ?: "https://maven.pkg.github.com/bitcoinppl.bbqr/bbqr-ffi").toString())
                 credentials {
-                    username = (project.findProperty("gpr.user") ?: System.getenv("GITHUB_ACTOR")).toString()
-                    password = (project.findProperty("gpr.key") ?: System.getenv("GITHUB_TOKEN")).toString()
+                    username = project.findProperty("gpr.user")?.toString() ?: System.getenv("GITHUB_ACTOR").orEmpty()
+                    password = project.findProperty("gpr.key")?.toString() ?: System.getenv("GITHUB_TOKEN").orEmpty()
                 }
             }
         }
